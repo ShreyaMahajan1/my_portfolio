@@ -901,7 +901,7 @@ const Portfolio = () => {
                       <span className="px-3 md:px-4 py-1.5 md:py-2 bg-teal-600/15 border border-teal-500/30 rounded-lg text-xs md:text-sm font-medium backdrop-blur-xl">
                         Software Developer
                       </span>
-                      <span className="px-3 md:px-4 py-1.5 md:py-2 bg-slate-700/15 border border-slate-600/30 rounded-lg text-xs md:text-sm font-medium backdrop-blur-xl">
+                      <span className="px-3 md:px-4 py-1.5 md:py-2 bg-teal-600/15 border border-teal-500/30 rounded-lg text-xs md:text-sm font-medium backdrop-blur-xl">
                         Full Stack Developer
                       </span>
                       <span className="px-3 md:px-4 py-1.5 md:py-2 bg-emerald-600/15 border border-emerald-500/30 rounded-lg text-xs md:text-sm font-medium backdrop-blur-xl">
@@ -917,7 +917,7 @@ const Portfolio = () => {
                         Node.js
                       </span>{" "}
                       &
-                      <span className="text-slate-300 font-normal">
+                      <span className="text-cyan-400 font-normal">
                         {" "}
                         MongoDB
                       </span>
@@ -941,8 +941,8 @@ const Portfolio = () => {
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-gray-400">
-                        <div className="w-7 h-7 rounded-lg bg-slate-500/10 flex items-center justify-center">
-                          <Star size={16} className="text-slate-400" />
+                        <div className="w-7 h-7 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                          <Star size={16} className="text-cyan-400" />
                         </div>
                         <span className="text-xs md:text-sm font-medium">
                           1.5+ Years
@@ -2093,14 +2093,14 @@ const Portfolio = () => {
           background: rgba(0, 0, 0, 0.3);
         }
 
-        ::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #a855f7, #ec4899);
-          border-radius: 5px;
-        }
+       ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #06b6d4, #14b8a6);
+  border-radius: 5px;
+}
 
-        ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #9333ea, #db2777);
-        }
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0891b2, #0d9488);
+}
           @keyframes fade-in {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }

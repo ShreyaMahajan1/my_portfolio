@@ -692,7 +692,17 @@ const Portfolio = () => {
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => {
+                  setActiveSection(item.id);
+
+                  // Naya section render hone ke baad top pe scroll
+                  requestAnimationFrame(() => {
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  });
+                }}
                 className={`group relative p-4 rounded-xl transition-all duration-300 ${
                   activeSection === item.id
                     ? "bg-gradient-to-r from-teal-600 to-cyan-600 shadow-md shadow-teal-500/30  scale-110"
@@ -910,18 +920,35 @@ const Portfolio = () => {
                     </div>
 
                     <p className="text-base md:text-xl lg:text-2xl text-gray-300/90 leading-relaxed font-light">
-                      Building scalable web applications with
+                      Full Stack Developer building fast, scalable and
+                      user-centric applications with
                       <span className="text-teal-400 font-normal"> React</span>,
                       <span className="text-cyan-400 font-normal">
                         {" "}
+                        React Native
+                      </span>
+                      ,
+                      <span className="text-cyan-400 font-normal">
+                        {" "}
                         Node.js
+                      </span>
+                      ,
+                      <span className="text-teal-400 font-normal">
+                        {" "}
+                        TypeScript
                       </span>{" "}
                       &
                       <span className="text-cyan-400 font-normal">
                         {" "}
                         MongoDB
                       </span>
+                      .
                     </p>
+                    <span className="block text-sm md:text-lg text-gray-400 mt-2">
+                      Delivering polished frontends, secure APIs, and optimized
+                      backend systems — with performance, clean architecture and
+                      real-world problem solving at the core.
+                    </span>
 
                     <div className="flex flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
                       <div className="flex items-center gap-2 text-gray-400">

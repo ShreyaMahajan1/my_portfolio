@@ -12,6 +12,7 @@ import {
   Github,
   Linkedin,
   Download,
+  ArrowUp,
   Send,
   Code,
   Briefcase,
@@ -50,10 +51,9 @@ const Portfolio = () => {
     email: "",
     message: "",
   });
-  // Add this state at the top of your component
+
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Define categories
   const categories = [
     { id: "all", name: "All Skills", icon: "🎯" },
     { id: "frontend", name: "Frontend", icon: "🎨" },
@@ -62,9 +62,7 @@ const Portfolio = () => {
     { id: "tools", name: "Tools & Others", icon: "🔧" },
   ];
 
-  // Updated skills array with categories
   const skills = [
-    // Frontend
     {
       name: "React.js",
       icon: "⚛️",
@@ -72,7 +70,7 @@ const Portfolio = () => {
       level: 90,
       yearsOfExperience: "3+ years",
       description:
-        "Building dynamic and responsive user interfaces with React hooks, context API, and modern React patterns.",
+        "Used in all major projects — dashboards, KYC flow UI, complex forms, and reusable component systems.",
     },
     {
       name: "Next.js",
@@ -81,7 +79,7 @@ const Portfolio = () => {
       level: 85,
       yearsOfExperience: "2+ years",
       description:
-        "Developing server-side rendered applications with routing, API routes, and optimized performance.",
+        "Built SEO friendly pages and API routes — deployed multiple production apps on Vercel.",
     },
     {
       name: "TypeScript",
@@ -90,7 +88,7 @@ const Portfolio = () => {
       level: 88,
       yearsOfExperience: "2+ years",
       description:
-        "Writing type-safe code with strong typing, interfaces, and advanced TypeScript features.",
+        "Strong typing in both frontend and backend — fewer bugs, cleaner structure, better maintenance.",
     },
     {
       name: "Tailwind CSS",
@@ -99,7 +97,7 @@ const Portfolio = () => {
       level: 92,
       yearsOfExperience: "3+ years",
       description:
-        "Creating beautiful, responsive designs with utility-first CSS framework and custom configurations.",
+        "My go-to styling tool — custom themes, responsive layouts, and pixel-polished UI for live products.",
     },
     {
       name: "JavaScript (ES6+)",
@@ -108,19 +106,17 @@ const Portfolio = () => {
       level: 95,
       yearsOfExperience: "4+ years",
       description:
-        "Mastering modern JavaScript including async/await, promises, destructuring, and functional programming.",
+        "Everything from async workflows to API integration — the backbone of most of my apps.",
     },
-
     {
       name: "React Native",
-      description:
-        "Developed cross-platform mobile applications with optimized performance and native integrations.",
-      yearsOfExperience: 1,
-      category: "frontend",
-      level: 70,
       icon: "📱",
+      category: "mobile",
+      level: 80,
+      yearsOfExperience: "1+ year",
+      description:
+        "Shipped 50+ screen production app — auth, navigation, camera, charts, hardware APIs.",
     },
-
     {
       name: "HTML5 & CSS3",
       icon: "🌐",
@@ -128,10 +124,8 @@ const Portfolio = () => {
       level: 95,
       yearsOfExperience: "4+ years",
       description:
-        "Semantic HTML markup and advanced CSS techniques including animations, grid, and flexbox.",
+        "Clean markup, animations, accessibility handling — I care about UI polish.",
     },
-
-    // Frontend
     {
       name: "Bootstrap",
       icon: "🅱️",
@@ -139,7 +133,7 @@ const Portfolio = () => {
       level: 80,
       yearsOfExperience: "2+ years",
       description:
-        "Creating responsive, mobile-first web designs using Bootstrap's grid system, components, and utility classes.",
+        "Used in internal admin panels and rapid prototypes when speed > customization.",
     },
     {
       name: "Redux",
@@ -148,7 +142,7 @@ const Portfolio = () => {
       level: 75,
       yearsOfExperience: "1+ year",
       description:
-        "State management for React applications using Redux Toolkit, actions, reducers, and middleware for complex data flows.",
+        "Managed shared state for large screens app with multiple data flows and caching.",
     },
     {
       name: "Sass/SCSS",
@@ -157,78 +151,9 @@ const Portfolio = () => {
       level: 82,
       yearsOfExperience: "2+ years",
       description:
-        "Writing maintainable CSS with variables, mixins, nesting, and advanced Sass features for scalable styling.",
+        "Worked on codebases using SCSS for better structure and theme variables before Tailwind era.",
     },
 
-    // Backend
-
-    {
-      name: "JWT Authentication",
-      icon: "🔐",
-      category: "backend",
-      level: 85,
-      yearsOfExperience: "2+ years",
-      description:
-        "Implementing secure authentication and authorization using JSON Web Tokens and OAuth strategies.",
-    },
-    {
-      name: "Socket.io",
-      icon: "🔌",
-      category: "backend",
-      level: 72,
-      yearsOfExperience: "1+ year",
-      description:
-        "Building real-time, bidirectional communication for chat applications, notifications, and live updates.",
-    },
-
-    // Tools & Others
-
-    {
-      name: "CI/CD",
-      icon: "🔄",
-      category: "tools",
-      level: 68,
-      yearsOfExperience: "1+ year",
-      description:
-        "Automating deployment pipelines with GitHub Actions, Jenkins, and continuous integration workflows.",
-    },
-    {
-      name: "Vercel/Netlify",
-      icon: "▲",
-      category: "tools",
-      level: 85,
-      yearsOfExperience: "2+ years",
-      description:
-        "Deploying and hosting web applications with automatic deployments, serverless functions, and edge optimization.",
-    },
-    {
-      name: "npm/Yarn",
-      icon: "📦",
-      category: "tools",
-      level: 90,
-      yearsOfExperience: "3+ years",
-      description:
-        "Package management, dependency handling, scripts automation, and managing project configurations.",
-    },
-    {
-      name: "ESLint/Prettier",
-      icon: "✨",
-      category: "tools",
-      level: 88,
-      yearsOfExperience: "2+ years",
-      description:
-        "Code quality and formatting tools for consistent, error-free code across team projects.",
-    },
-    {
-      name: "Responsive Design",
-      icon: "📱",
-      category: "frontend",
-      level: 95,
-      yearsOfExperience: "3+ years",
-      description:
-        "Creating fluid layouts that work seamlessly across all devices using media queries and flexible grids.",
-    },
-    // Backend
     {
       name: "Node.js",
       icon: "🟢",
@@ -236,7 +161,7 @@ const Portfolio = () => {
       level: 85,
       yearsOfExperience: "3+ years",
       description:
-        "Building scalable server-side applications with Express.js, RESTful APIs, and microservices architecture.",
+        "Built scalable REST APIs for authentication, admin dashboards & automation services.",
     },
     {
       name: "Express.js",
@@ -245,7 +170,7 @@ const Portfolio = () => {
       level: 85,
       yearsOfExperience: "3+ years",
       description:
-        "Creating robust backend APIs with middleware, routing, authentication, and error handling.",
+        "Routing, middleware, logging, role-based access — my daily backend comfort zone.",
     },
     {
       name: "RESTful APIs",
@@ -254,10 +179,27 @@ const Portfolio = () => {
       level: 90,
       yearsOfExperience: "2+ years",
       description:
-        "Designing and implementing RESTful web services with proper HTTP methods and status codes.",
+        "Designed and consumed APIs for mobile & web — proper status codes and error handling.",
+    },
+    {
+      name: "JWT Authentication",
+      icon: "🔐",
+      category: "backend",
+      level: 85,
+      yearsOfExperience: "2+ years",
+      description:
+        "Used in production onboarding flows — secure session handling and protected routes.",
+    },
+    {
+      name: "Socket.io",
+      icon: "🔌",
+      category: "backend",
+      level: 72,
+      yearsOfExperience: "1+ year",
+      description:
+        "Used for real-time features like notifications and activity updates.",
     },
 
-    // Database
     {
       name: "MongoDB",
       icon: "🍃",
@@ -265,9 +207,8 @@ const Portfolio = () => {
       level: 82,
       yearsOfExperience: "2+ years",
       description:
-        "Working with NoSQL databases, aggregation pipelines, and Mongoose ODM for data modeling.",
+        "Used across projects — user data, activity logs, dynamic dashboards, aggregation queries.",
     },
-
     {
       name: "Redis",
       icon: "🔴",
@@ -275,10 +216,9 @@ const Portfolio = () => {
       level: 70,
       yearsOfExperience: "1+ year",
       description:
-        "Implementing caching strategies and session management with in-memory data store.",
+        "Session caching and speeding up login flows — noticeable performance gains.",
     },
 
-    // Tools & Others
     {
       name: "Git & GitHub",
       icon: "🔀",
@@ -286,7 +226,7 @@ const Portfolio = () => {
       level: 90,
       yearsOfExperience: "4+ years",
       description:
-        "Version control, branching strategies, pull requests, and collaborative development workflows.",
+        "Branching strategies, PR reviews, conflict resolution — core part of team work.",
     },
     {
       name: "Docker",
@@ -295,15 +235,7 @@ const Portfolio = () => {
       level: 75,
       yearsOfExperience: "1+ year",
       description:
-        "Containerizing applications and managing multi-container environments with Docker Compose.",
-    },
-    {
-      name: "Vercel",
-      icon: "☁️",
-      category: "tools",
-      level: 70,
-      yearsOfExperience: "1 year",
-      description: "Deploying applications using vercel or github ",
+        "Containerized/backend services for smoother onboarding & deployment.",
     },
     {
       name: "Postman",
@@ -312,16 +244,25 @@ const Portfolio = () => {
       level: 88,
       yearsOfExperience: "3+ years",
       description:
-        "API testing, documentation, and automated testing with collections and environments.",
+        "Daily driver for API dev — automation, token-auth testing, workflow debugging.",
     },
     {
-      name: "VS Code",
-      icon: "💻",
+      name: "npm/Yarn",
+      icon: "📦",
       category: "tools",
-      level: 95,
-      yearsOfExperience: "4+ years",
+      level: 90,
+      yearsOfExperience: "3+ years",
       description:
-        "Efficient development with extensions, shortcuts, and customized workflows.",
+        "Managing mono repos & scripts — never shipped a project without them.",
+    },
+    {
+      name: "ESLint/Prettier",
+      icon: "✨",
+      category: "tools",
+      level: 88,
+      yearsOfExperience: "2+ years",
+      description:
+        "Code stays clean and consistent — makes PR reviews painless.",
     },
     {
       name: "Figma",
@@ -330,7 +271,7 @@ const Portfolio = () => {
       level: 75,
       yearsOfExperience: "2+ years",
       description:
-        "UI/UX design, prototyping, and collaboration with design systems and components.",
+        "Designed UI flows with dev handoff — reduces guesswork while coding.",
     },
     {
       name: "Webpack/Vite",
@@ -339,11 +280,19 @@ const Portfolio = () => {
       level: 70,
       yearsOfExperience: "1+ year",
       description:
-        "Module bundling, build optimization, and development server configuration.",
+        "Used in projects needing bundler-level control & faster DX setups.",
+    },
+    {
+      name: "Vercel/Netlify",
+      icon: "☁️",
+      category: "tools",
+      level: 85,
+      yearsOfExperience: "2+ years",
+      description:
+        "Fast deployments, preview links for clients, serverless functions setup.",
     },
   ];
 
-  // Filter skills based on selected category
   const filteredSkills =
     selectedCategory === "all"
       ? skills
@@ -403,7 +352,6 @@ const Portfolio = () => {
         }
       );
 
-      // Log the response for debugging
       const responseText = await response.text();
       console.log("EmailJS Response:", response.status, responseText);
 
@@ -419,10 +367,8 @@ const Portfolio = () => {
     } catch (error) {
       console.error("Email send error:", error);
 
-      // Show error to user (optional)
       alert("Failed to send email. Opening your email client instead.");
 
-      // Fallback to mailto
       const mailtoLink = `mailto:shreyamahajan56789@gmail.com?subject=Message from ${encodeURIComponent(
         formData.name
       )}&body=${encodeURIComponent(
@@ -436,9 +382,8 @@ const Portfolio = () => {
   };
 
   const downloadCV = () => {
-    // Method 1: If you put the PDF in your public folder
     const link = document.createElement("a");
-    link.href = "/Resume.Shreya.docx.pdf"; // Place your PDF in public folder
+    link.href = "/Resume.Shreya.docx.pdf";
     link.download = "Shreya_Mahajan_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -489,34 +434,30 @@ const Portfolio = () => {
 
   const [activeDot, setActiveDot] = useState<number>(-1);
   const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const hasCompletedCycle = useRef(false); // Track if animation completed
-  const autoScrollEnabled = useRef(true); // Control auto-scroll behavior
+  const hasCompletedCycle = useRef(false);
+  const autoScrollEnabled = useRef(true);
 
-  // Scroll to top on page load/refresh
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Animate dot movement between experiences (ONE TIME ONLY)
   useEffect(() => {
     if (activeSection !== "experience") return;
-    if (hasCompletedCycle.current) return; // Exit if already completed
+    if (hasCompletedCycle.current) return;
 
-    // Initial delay before starting the animation
     const initialDelay = setTimeout(() => {
-      setActiveDot(0); // Start with first experience
+      setActiveDot(0);
     }, 1000);
 
     const interval = setInterval(() => {
       setActiveDot((prev) => {
         const nextIndex = prev + 1;
 
-        // Stop AFTER showing all experiences (including the last one)
         if (nextIndex > experiences.length - 1) {
           clearInterval(interval);
-          hasCompletedCycle.current = true; // Mark as completed
-          autoScrollEnabled.current = false; // Disable auto-scroll
-          return experiences.length - 1; // Stay on last experience
+          hasCompletedCycle.current = true;
+          autoScrollEnabled.current = false;
+          return experiences.length - 1;
         }
 
         return nextIndex;
@@ -529,12 +470,11 @@ const Portfolio = () => {
     };
   }, [activeSection, experiences.length]);
 
-  // Auto-scroll to active card (only during initial animation)
   const isFirstRender = useRef(true);
   useEffect(() => {
     if (activeSection !== "experience") return;
     if (activeDot === -1) return;
-    if (!autoScrollEnabled.current) return; // Disable after one cycle
+    if (!autoScrollEnabled.current) return;
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
@@ -555,17 +495,15 @@ const Portfolio = () => {
   }
 `;
 
-  // Handler for manual card interaction (hover)
   const handleCardHover = (index: number) => {
     if (hasCompletedCycle.current) {
       setActiveDot(index);
     }
   };
 
-  // Handler for manual card leave
   const handleCardLeave = () => {
     if (hasCompletedCycle.current) {
-      setActiveDot(-1); // Reset to no active dot when not hovering
+      setActiveDot(-1);
     }
   };
 
@@ -649,7 +587,13 @@ const Portfolio = () => {
     setActiveSection(section);
     setSidebarOpen(false);
   };
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
 
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden relative">
       {/* Floating Particles */}
@@ -695,7 +639,6 @@ const Portfolio = () => {
                 onClick={() => {
                   setActiveSection(item.id);
 
-                  // Naya section render hone ke baad top pe scroll
                   requestAnimationFrame(() => {
                     window.scrollTo({
                       top: 0,
@@ -919,9 +862,10 @@ const Portfolio = () => {
                       </span>
                     </div>
 
+                    {/* Updated content */}
                     <p className="text-base md:text-xl lg:text-2xl text-gray-300/90 leading-relaxed font-light">
-                      Full Stack Developer building fast, scalable and
-                      user-centric applications with
+                      I build reliable, production-ready web and mobile
+                      applications with
                       <span className="text-teal-400 font-normal"> React</span>,
                       <span className="text-cyan-400 font-normal">
                         {" "}
@@ -945,9 +889,9 @@ const Portfolio = () => {
                       .
                     </p>
                     <span className="block text-sm md:text-lg text-gray-400 mt-2">
-                      Delivering polished frontends, secure APIs, and optimized
-                      backend systems — with performance, clean architecture and
-                      real-world problem solving at the core.
+                      Focused on clean architecture, secure APIs and performance
+                      — shipping features that solve real problems and deliver
+                      measurable impact.
                     </span>
 
                     <div className="flex flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
@@ -1026,6 +970,7 @@ const Portfolio = () => {
                     >
                       <Linkedin size={20} />
                     </a>
+
                     <a
                       href="tel:+918727828878"
                       className="group w-11 h-11 md:w-12 md:h-12 bg-slate-800/40 border border-slate-700/50 rounded-lg flex items-center justify-center hover:bg-emerald-600/20 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1 shadow-lg"
@@ -1114,6 +1059,7 @@ const Portfolio = () => {
               </div>
             </div>
           )}
+
           {/* About Section */}
           {activeSection === "about" && (
             <div className="animate-fade-in space-y-10 md:space-y-14 pb-20 mt-10">
@@ -1163,45 +1109,47 @@ const Portfolio = () => {
 
                   <div className="space-y-5 text-gray-300 text-sm md:text-base leading-relaxed">
                     <p>
-                      I'm a Full Stack Developer with 1.5+ years of experience
-                      building web and mobile applications. I focus on creating
-                      products that are both functional and enjoyable to use.
+                      Full Stack Developer who enjoys turning ideas into real
+                      products people actually use. Delivering production-ready
+                      Web & Mobile applications using modern JavaScript
+                      technologies.
                     </p>
 
                     <div className="bg-slate-800/50 rounded-lg p-4 border-l-2 border-teal-500">
                       <p className="text-sm">
                         <span className="text-cyan-400 font-medium">
-                          Currently at QuadB Technology
+                          Currently at QuadB Technologies
                         </span>{" "}
-                        as a Software Developer Engineer, working on scalable
-                        web applications, mobile apps, and Web3 integrations.
+                        building products across finance, identity verification
+                        and AI automation — ensuring performance, reliability
+                        and clean engineering.
                       </p>
                     </div>
 
                     <p>
-                      My main tech stack includes React.js, TypeScript, Node.js,
-                      and React Native. I enjoy working on the full product
-                      lifecycle—from initial design to deployment and
-                      maintenance.
+                      I enjoy owning the full development lifecycle —
+                      architecture, API integrations, frontend engineering,
+                      deployment & continuous improvement.
                     </p>
 
+                    {/* Key Wins */}
                     <div className="pt-3">
                       <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wide">
-                        Recent Work Highlights
+                        Key Contributions
                       </h4>
                       <div className="space-y-2.5 text-sm">
                         <div className="flex gap-2">
                           <span className="text-teal-400 mt-0.5">→</span>
                           <span>
-                            Built Speech to text voice input note agent with 92%
-                            accuracy, reducing manual input by 70%
+                            Built onboarding + identity flow with OTP & Aadhaar
+                            KYC — 95% successful verifications
                           </span>
                         </div>
                         <div className="flex gap-2">
                           <span className="text-teal-400 mt-0.5">→</span>
                           <span>
-                            Led 4-person dev team, improved sprint efficiency by
-                            40%
+                            Delivered 50+ screens React Native app to production
+                            with smooth UX and role-based access
                           </span>
                         </div>
                         <div className="flex gap-2">
@@ -1214,14 +1162,8 @@ const Portfolio = () => {
                         <div className="flex gap-2">
                           <span className="text-teal-400 mt-0.5">→</span>
                           <span>
-                            Optimized React performance, achieved 30% speed
-                            improvement
-                          </span>
-                        </div>
-                        <div className="flex gap-2">
-                          <span className="text-teal-400 mt-0.5">→</span>
-                          <span>
-                            Created 20+ reusable UI components with Tailwind CSS
+                            Optimized React performance — faster loads, reduced
+                            re-render overhead
                           </span>
                         </div>
                       </div>
@@ -1350,8 +1292,8 @@ const Portfolio = () => {
                       Web Development
                     </h4>
                     <p className="text-sm text-gray-400 leading-relaxed">
-                      Building responsive web applications with React, Next.js,
-                      and modern tools
+                      Frontend engineering with React & TypeScript + secure
+                      backend development using Node.js
                     </p>
                   </div>
 
@@ -1363,8 +1305,8 @@ const Portfolio = () => {
                       Mobile Apps
                     </h4>
                     <p className="text-sm text-gray-400 leading-relaxed">
-                      Creating cross-platform mobile applications using React
-                      Native
+                      Cross-platform apps with React Native — smooth UI +
+                      native-level performance
                     </p>
                   </div>
 
@@ -1376,8 +1318,8 @@ const Portfolio = () => {
                       UI/UX Design
                     </h4>
                     <p className="text-sm text-gray-400 leading-relaxed">
-                      Designing intuitive interfaces with attention to user
-                      experience
+                      Delivering clean, scalable architectures from idea to
+                      production
                     </p>
                   </div>
                 </div>
@@ -1430,19 +1372,20 @@ const Portfolio = () => {
           {/* Skills Section */}
 
           {activeSection === "skills" && (
-            <div className="animate-fade-in space-y-10 pb-20 mt-10 min-h-[70vh]">
-              {/* Simple Header */}
+            <div className="animate-fade-in space-y-10 pb-20 mt-10 min-h-[10vh]">
+              {/* Header */}
               <div className="space-y-3 mb-10">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                   Skills & Technologies
                 </h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-cyan-500"></div>
                 <p className="text-gray-400 text-base max-w-2xl">
-                  Technologies I work with on a regular basis
+                  I work across the entire product stack — from polished React
+                  UIs to secure Node+Mongo APIs and production deployments.
                 </p>
               </div>
 
-              {/* Category Filter - Simplified */}
+              {/* Category Filter */}
               <div className="flex flex-wrap gap-2 mb-8">
                 {categories.map((category) => (
                   <button
@@ -1464,7 +1407,7 @@ const Portfolio = () => {
                 ))}
               </div>
 
-              {/* Skills Grid - Cleaner Layout with Typing Effect */}
+              {/* Skills Grid */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {filteredSkills.map((skill, index) => (
                   <div
@@ -1491,46 +1434,35 @@ const Portfolio = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="text-right flex-shrink-0">
-                          <span className="text-lg font-bold text-teal-400">
-                            {skill.level}%
-                          </span>
-                        </div>
                       </div>
 
-                      {/* Description */}
+                      {/* Description (keep this very real in your data) */}
                       <p className="text-sm text-gray-400 leading-relaxed line-clamp-2">
                         {skill.description}
                       </p>
 
-                      {/* Progress bar - Animated */}
-                      <div className="relative h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                        <div
-                          className="absolute inset-y-0 left-0 bg-teal-600 rounded-full"
-                          style={
-                            {
-                              width: "0%",
-                              animation: `fillBar 1s ease-out ${
-                                index * 100 + 300
-                              }ms forwards`,
-                              "--target-width": `${skill.level}%`,
-                            } as React.CSSProperties
-                          }
-                        />
-                      </div>
-
-                      {/* Skill Level Label */}
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-gray-500">
+                      {/* Proficiency row (no % shown anywhere) */}
+                      <div className="flex items-center justify-between text-xs pt-1">
+                        <span className="text-gray-300 font-medium">
                           {skill.level >= 90
-                            ? "Expert"
+                            ? "Something I use daily"
                             : skill.level >= 75
-                            ? "Advanced"
+                            ? "Very comfortable with it"
                             : skill.level >= 60
-                            ? "Proficient"
-                            : "Intermediate"}
+                            ? "Used in real projects"
+                            : "Currently improving"}
                         </span>
-                        <span className="text-gray-600">{skill.category}</span>
+                        <span className="text-gray-500">
+                          {skill.category === "frontend"
+                            ? "Frontend"
+                            : skill.category === "backend"
+                            ? "Backend"
+                            : skill.category === "mobile"
+                            ? "Mobile"
+                            : skill.category === "devops"
+                            ? "DevOps"
+                            : skill.category}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -1543,29 +1475,34 @@ const Portfolio = () => {
                   <div className="text-3xl font-bold text-teal-400 mb-1">
                     {skills.length}
                   </div>
-                  <div className="text-sm text-gray-400">Total Skills</div>
+                  <div className="text-sm text-gray-400">
+                    Skills in my toolkit
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-cyan-400 mb-1">
                     {skills.filter((s) => s.category === "frontend").length}
                   </div>
-                  <div className="text-sm text-gray-400">Frontend</div>
+                  <div className="text-sm text-gray-400">Frontend stack</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-emerald-400 mb-1">
                     {skills.filter((s) => s.category === "backend").length}
                   </div>
-                  <div className="text-sm text-gray-400">Backend</div>
+                  <div className="text-sm text-gray-400">Backend & APIs</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-slate-400 mb-1">
                     {skills.filter((s) => s.level >= 85).length}
                   </div>
-                  <div className="text-sm text-gray-400">Expert Level</div>
+                  <div className="text-sm text-gray-400">
+                    Used in production
+                  </div>
                 </div>
               </div>
             </div>
           )}
+
           {/* Experience Section */}
           {activeSection === "experience" && (
             <div className="animate-fade-in space-y-10 pb-20 mt-10 max-w-7xl mx-auto">
@@ -1967,12 +1904,17 @@ const Portfolio = () => {
       </main>
 
       {/* Footer */}
-      <footer className="mb-16 md:mb-0 relative z-10 bg-slate-900/50 backdrop-blur-xl border-t border-slate-800 py-6 md:py-8 mt-12 md:mt-20 lg:ml-20">
+      <footer className="mb-16 md:mb-0 relative z-10 bg-slate-900/50 backdrop-blur-xl border-t border-slate-800 py-6 md:py-8 mt-12 md:mt-20 lg:ml-20 animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm md:text-base text-gray-400 text-center md:text-left">
-              © 2025 Shreya Mahajan. All rights reserved.
+          <div className="flex flex-col justify-center items-center gap-4 text-center">
+            {/* Center Text on Desktop */}
+            <p className="text-sm md:text-base text-gray-400">
+              Designed & built by{" "}
+              <span className="text-cyan-400 font-medium">Shreya Mahajan</span>{" "}
+              — © 2025
             </p>
+
+            {/* Social Icons Centered */}
             <div className="flex gap-4 md:gap-6">
               <a
                 href="https://github.com/ShreyaMahajan1"
@@ -2023,7 +1965,7 @@ const Portfolio = () => {
         .animate-fade-in-delay-4 {
           animation: fade-in 0.8s ease-out 1.2s backwards;
         }
-        
+
         @keyframes slide-in-left {
           from { opacity: 0; transform: translateX(-50px); }
           to { opacity: 1; transform: translateX(0); }
@@ -2031,7 +1973,7 @@ const Portfolio = () => {
         .animate-slide-in-left {
           animation: slide-in-left 0.8s ease-out;
         }
-        
+
         @keyframes slide-in-right {
           from { opacity: 0; transform: translateX(50px); }
           to { opacity: 1; transform: translateX(0); }
@@ -2039,7 +1981,7 @@ const Portfolio = () => {
         .animate-slide-in-right {
           animation: slide-in-right 0.8s ease-out;
         }
-        
+
         @keyframes slide-in-up {
           from { opacity: 0; transform: translateY(50px); }
           to { opacity: 1; transform: translateY(0); }
@@ -2047,7 +1989,7 @@ const Portfolio = () => {
         .animate-slide-in-up {
           animation: slide-in-up 0.8s ease-out;
         }
-        
+
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }
@@ -2055,7 +1997,7 @@ const Portfolio = () => {
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
-        
+
         @keyframes pulse-slow {
           0%, 100% { opacity: 0.2; transform: scale(1); }
           50% { opacity: 0.3; transform: scale(1.05); }
@@ -2063,7 +2005,7 @@ const Portfolio = () => {
         .animate-pulse-slow {
           animation: pulse-slow 4s ease-in-out infinite;
         }
-        
+
         @keyframes pulse-glow {
           0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
           50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
@@ -2071,7 +2013,7 @@ const Portfolio = () => {
         .animate-pulse-glow {
           animation: pulse-glow 2s ease-in-out infinite;
         }
-        
+
         @keyframes gradient {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -2081,7 +2023,7 @@ const Portfolio = () => {
           background-size: 200% 200%;
           animation: gradient 3s ease infinite;
         }
-        
+
         @keyframes shimmer {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
@@ -2089,11 +2031,11 @@ const Portfolio = () => {
         .animate-shimmer {
           animation: shimmer 3s ease-in-out infinite;
         }
-        
+
         @keyframes skillFill {
           from { width: 0%; }
         }
-        
+
         .animation-delay-2000 {
           animation-delay: 2s;
         }
@@ -2132,7 +2074,7 @@ const Portfolio = () => {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+
   @keyframes fade-in-up {
     from { 
       opacity: 0; 
@@ -2147,7 +2089,7 @@ const Portfolio = () => {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-        
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -2158,11 +2100,11 @@ const Portfolio = () => {
             transform: translateY(0);
           }
         }
-        
+
         .animate-fade-in {
           animation: fadeIn 0.6s ease-out;
         }
-        
+
         .animate-fade-in-up {
           animation: fadeInUp 0.6s ease-out;
         }
@@ -2174,73 +2116,73 @@ const Portfolio = () => {
       width: var(--target-width); 
     }
   }
-  
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out;
   }
-  
+
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out;
   }
-  
+
   .animate-fade-in-delay {
     animation: fade-in 0.8s ease-out 0.3s backwards;
   }
-  
+
   .animate-fade-in-delay-2 {
     animation: fade-in 0.8s ease-out 0.6s backwards;
   }
-  
+
   .animate-fade-in-delay-3 {
     animation: fade-in 0.8s ease-out 0.9s backwards;
   }
-  
+
   .animate-fade-in-delay-4 {
     animation: fade-in 0.8s ease-out 1.2s backwards;
   }
-  
+
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
   }
-  
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
-  
+
   @keyframes pulse-slow {
     0%, 100% { opacity: 0.1; transform: scale(1); }
     50% { opacity: 0.15; transform: scale(1.05); }
   }
-  
+
   .animate-pulse-slow {
     animation: pulse-slow 4s ease-in-out infinite;
   }
-  
+
   @keyframes gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-  
+
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient 3s ease infinite;
   }
-  
+
   @keyframes shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
   }
-  
+
   .animate-shimmer {
     animation: shimmer 3s ease-in-out infinite;
   }
-  
+
   .animation-delay-2000 {
     animation-delay: 2s;
   }
-  
+
   .animation-delay-4000 {
     animation-delay: 4s;
   }
@@ -2248,7 +2190,7 @@ const Portfolio = () => {
   .safe-area-pb {
     padding-bottom: env(safe-area-inset-bottom);
   }
-  
+
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;

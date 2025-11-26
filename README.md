@@ -1,48 +1,58 @@
-# Getting Started with Create React App
+# ✨ Shreya Mahajan — Developer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Full Stack Developer • React • TypeScript • React Native**
 
-## Available Scripts
+🌐 **Live Portfolio:** https://shreyamahajan.vercel.app  
+📩 **Email:** shreyamahajan56789@gmail.com  
+🔗 **LinkedIn:** https://linkedin.com/in/shreya-mahajann  
+💻 **GitHub:** https://github.com/ShreyaMahajan1
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🛠 Tech Stack Badges
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?logo=tailwindcss&logoColor=white)
+![FramerMotion](https://img.shields.io/badge/Framer--Motion-Animations-ff2d55)
+![Status](https://img.shields.io/badge/Status-Live-brightgreen)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ About This Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This repository contains my **personal developer portfolio** — a modern, animated, and interactive UI showcasing:
 
-### `npm run build`
+- 🧠 Skills & technology expertise
+- 💼 Work experience & professional info
+- 🚀 Featured projects (Web, Mobile, Web3/DeFi)
+- 🤖 Built-in AI Assistant as a chat-based guide
+- 📱 Fully responsive design across all devices
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The aim was to create an **engaging storytelling portfolio**, not a simple static page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎨 Key Features
 
-### `npm run eject`
+| Feature | Description |
+|--------|------------|
+| 🤖 AI Chat Assistant | Helps visitors explore skills, experience, contact info |
+| 🎭 Framer Motion Animations | Smooth transitions and modern UI |
+| 🪟 Glassmorphism UI | Gradient, blur effects & futuristic styling |
+| 📲 Mobile-first | Optimized layout for all screens |
+| 🔗 Social Links | GitHub, LinkedIn, Phone in footer |
+| 🎯 Smart Section Navigation | Chatbot can switch sections automatically |
+| 💬 Chat closes on click outside | Desktop + Mobile behavior |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠 Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# newportfolio
-# newportfolio
+```txt
+Frontend:  React, TypeScript
+UI:        Tailwind CSS, Glassmorphism, Custom gradients
+Animation: Framer Motion
+Icons:     lucide-react
+Build:     Create React App
+Deploy:    Vercel

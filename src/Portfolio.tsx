@@ -32,6 +32,7 @@ import {
   X,
 } from "lucide-react";
 import shreya from "../src/img/shreya.jpg";
+import AIAgent from './AIAgent';
 interface Particle {
   id: number;
   x: number;
@@ -586,6 +587,13 @@ const Portfolio = () => {
   const handleNavClick = (section: string) => {
     setActiveSection(section);
     setSidebarOpen(false);
+  };
+
+  const handleContactClick = () => {
+    // Navigate to the contact section and close sidebars
+    setActiveSection('contact');
+    setSidebarOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -1904,46 +1912,56 @@ const Portfolio = () => {
       </main>
 
       {/* Footer */}
-      <footer className="mb-16 md:mb-0 relative z-10 bg-slate-900/50 backdrop-blur-xl border-t border-slate-800 py-6 md:py-8 mt-12 md:mt-20 lg:ml-20 animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-center items-center gap-4 text-center">
-            {/* Center Text on Desktop */}
-            <p className="text-sm md:text-base text-gray-400">
-              Designed & built by{" "}
-              <span className="text-cyan-400 font-medium">Shreya Mahajan</span>{" "}
-              — © 2025
-            </p>
+   <footer className="mb-16 md:mb-0 relative z-10 bg-slate-900/50 backdrop-blur-xl border-t border-slate-800 py-6 md:py-8 mt-12 md:mt-20 lg:ml-20 animate-fade-in-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col justify-center items-center gap-4 text-center">
 
-            {/* Social Icons Centered */}
-            <div className="flex gap-4 md:gap-6">
-              <a
-                href="https://github.com/ShreyaMahajan1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 hover:scale-110 transform"
-              >
-                <Github size={24} />
-              </a>
+      <p className="text-sm md:text-base text-gray-400">
+        Designed & built by{" "}
+        <span className="text-cyan-400 font-medium">Shreya Mahajan</span> — © 2025
+      </p>
 
-              <a
-                href="https://www.linkedin.com/in/shreya-mahajann/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-teal-400 transition-colors duration-300 hover:scale-110 transform"
-              >
-                <Linkedin size={24} />
-              </a>
+      <div className="flex items-center justify-center gap-4 md:gap-6">
 
-              <a
-                href="tel:+918727828878"
-                className="text-gray-400 hover:text-emerald-400 transition-colors duration-300 hover:scale-110 transform"
-              >
-                <Phone size={24} />
-              </a>
-            </div>
-          </div>
+        <a
+          href="https://github.com/ShreyaMahajan1"
+          target="_blank"
+          className="text-gray-400 hover:text-cyan-400 transition-transform hover:scale-110"
+        >
+          <Github size={22} />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/shreya-mahajann/"
+          target="_blank"
+          className="text-gray-400 hover:text-teal-400 transition-transform hover:scale-110"
+        >
+          <Linkedin size={22} />
+        </a>
+
+        <a
+          href="tel:+918727828878"
+          className="text-gray-400 hover:text-emerald-400 transition-transform hover:scale-110"
+        >
+          <Phone size={22} />
+        </a>
+
+        {/* AI icon in SAME row on mobile */}
+        <div className="flex md:hidden">
+          <AIAgent onContactClick={handleContactClick} onSectionChange={setActiveSection} />
         </div>
-      </footer>
+        {/* Floating AI only desktop */}
+<div className="hidden md:block">
+  <AIAgent onContactClick={handleContactClick} onSectionChange={setActiveSection} />
+</div>
+
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
 
       <style>{`
         @keyframes fade-in {

@@ -32,7 +32,7 @@ import {
   X,
 } from "lucide-react";
 import shreya from "../src/img/shreya.jpg";
-import AIAgent from './AIAgent';
+import AIAgent from "./AIAgent";
 interface Particle {
   id: number;
   x: number;
@@ -590,10 +590,10 @@ const Portfolio = () => {
   };
 
   const handleContactClick = () => {
-    // Navigate to the contact section and close sidebars
-    setActiveSection('contact');
+
+    setActiveSection("contact");
     setSidebarOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -604,7 +604,7 @@ const Portfolio = () => {
   }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden relative">
-      {/* Floating Particles */}
+      {}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map((particle) => (
           <div
@@ -622,7 +622,7 @@ const Portfolio = () => {
         ))}
       </div>
 
-      {/* Animated Background Orbs */}
+      {}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-96 h-96 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-full opacity-10 blur-3xl animate-pulse-slow"
@@ -636,7 +636,7 @@ const Portfolio = () => {
         <div className="absolute w-96 h-96 bg-gradient-to-r from-emerald-700 to-teal-700 rounded-full opacity-10 blur-3xl animate-pulse-slow animation-delay-4000 bottom-1/4 left-1/3" />
       </div>
 
-      {/* Desktop Sidebar */}
+      {}
       <div className="hidden lg:flex fixed left-0 top-0 bottom-0 w-20 bg-black/50 backdrop-blur-2xl border-r border-white/10 z-50 flex-col items-center py-8 shadow-2xl">
         <nav className="flex flex-col gap-8 flex-1 justify-center">
           {navItems.map((item) => {
@@ -674,7 +674,7 @@ const Portfolio = () => {
         </nav>
       </div>
 
-      {/* Mobile Sidebar Overlay */}
+      {}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden"
@@ -729,12 +729,12 @@ const Portfolio = () => {
         </div>
       )}
 
-      {/* Top Navigation */}
+      {}
       <nav className="fixed top-0 left-0 lg:left-20 right-0 bg-gradient-to-r from-black/60 via-slate-900/40 to-black/60 backdrop-blur-3xl border-b-2 border-slate-700/50 z-40 shadow-2xl shadow-slate-700/50">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal-600/10 to-transparent animate-shimmer"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="flex justify-between items-center h-20 md:h-24">
-            {/* Logo Section */}
+            {}
             <div className="flex items-center gap-3 md:gap-4 group cursor-pointer">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition-all duration-300 animate-pulse"></div>
@@ -754,7 +754,7 @@ const Portfolio = () => {
               </div>
             </div>
 
-            {/* Center Navigation Links - Hidden on mobile and tablet */}
+            {}
             <div className="hidden xl:flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-slate-700/50 backdrop-blur-xl">
               {navItems.map((item) => (
                 <button
@@ -775,9 +775,9 @@ const Portfolio = () => {
               ))}
             </div>
 
-            {/* Right Section */}
+            {}
             <div className="flex items-center gap-3 md:gap-4">
-              {/* Status Indicator - Hidden on small screens */}
+              {}
               <div className="hidden xl:flex items-center gap-2 px-4 py-2 ml-2 bg-green-500/10 border border-green-500/30 rounded-full">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-xs text-green-300 font-medium">
@@ -785,7 +785,7 @@ const Portfolio = () => {
                 </span>
               </div>
 
-              {/* Download CV Button */}
+              {}
               <button
                 onClick={downloadCV}
                 className="relative group flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-600 rounded-full hover:shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 overflow-hidden"
@@ -803,7 +803,7 @@ const Portfolio = () => {
                 </span>
               </button>
 
-              {/* Mobile Menu Button */}
+              {}
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
                 className="lg:hidden p-2 md:p-3 bg-teal-600/20 border border-teal-500/30 rounded-full hover:bg-teal-600/30 transition-all duration-300"
@@ -815,7 +815,7 @@ const Portfolio = () => {
         </div>
       </nav>
 
-      {/* Mobile Bottom Navigation */}
+      {}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-black/50 backdrop-blur-2xl border-t border-slate-700/50 z-40 shadow-2xl safe-area-pb">
         <div className="flex justify-around items-center py-2 px-2">
           {navItems.map((item) => {
@@ -841,13 +841,13 @@ const Portfolio = () => {
         </div>
       </nav>
 
-      {/* Main Content */}
+      {}
       <main className="pt-24 md:pt-28 pb-20 lg:pb-8 px-4 sm:px-6 lg:px-8 lg:ml-20 relative z-10">
         <div className="max-w-7xl mx-auto">
           {activeSection === "home" && (
             <div className="min-h-[calc(100vh-8rem)] flex items-center justify-center animate-fade-in py-8 md:py-12">
               <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto items-center">
-                {/* Left Side - Text Content */}
+                {}
                 <div className="space-y-4 md:space-y-6 text-left order-2 lg:order-1">
                   <h2 className="text-xl md:text-2xl lg:text-3xl text-cyan-400/90 font-medium animate-fade-in-delay">
                     Hi there, I'm
@@ -870,11 +870,11 @@ const Portfolio = () => {
                       </span>
                     </div>
 
-                    {/* Updated content */}
+                    {}
                     <p className="text-base md:text-xl lg:text-2xl text-gray-300/90 leading-relaxed font-light">
                       I build reliable, production-ready web and mobile
                       applications with
-                      <span className="text-teal-400 font-normal"> React</span>,
+                      <span className="text-cyan-400 font-normal"> React</span>,
                       <span className="text-cyan-400 font-normal">
                         {" "}
                         React Native
@@ -885,7 +885,7 @@ const Portfolio = () => {
                         Node.js
                       </span>
                       ,
-                      <span className="text-teal-400 font-normal">
+                      <span className="text-cyan-400 font-normal">
                         {" "}
                         TypeScript
                       </span>{" "}
@@ -930,7 +930,7 @@ const Portfolio = () => {
                     </div>
                   </div>
 
-                  {/* CTA Buttons */}
+                  {}
                   <div className="flex flex-wrap gap-3 md:gap-4 pt-4 md:pt-6 animate-fade-in-delay-3">
                     <button
                       onClick={() => {
@@ -959,7 +959,7 @@ const Portfolio = () => {
                     </button>
                   </div>
 
-                  {/* Social Links */}
+                  {}
                   <div className="flex gap-3 md:gap-4 pt-3 md:pt-4 animate-fade-in-delay-4">
                     <a
                       href="https://github.com/ShreyaMahajan1"
@@ -988,10 +988,10 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                {/* Right Side - Profile Image with Stats */}
+                {}
                 <div className="relative order-1 lg:order-2 animate-fade-in-delay">
                   <div className="relative">
-                    {/* Main Profile Image */}
+                    {}
                     <div className="relative z-10">
                       <div className="absolute -inset-3 bg-gradient-to-r from-teal-600/15 via-cyan-600/15 to-slate-700/15 rounded-2xl blur-2xl"></div>
                       <div className="relative w-full max-w-sm md:max-w-md mx-auto aspect-square">
@@ -1002,7 +1002,7 @@ const Portfolio = () => {
                               className="w-full h-full object-cover"
                               alt="Shreya Mahajan"
                             />
-                            {/* Decorative Elements */}
+                            {}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-500/20 to-transparent rounded-full blur-2xl"></div>
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/20 to-transparent rounded-full blur-2xl"></div>
                           </div>
@@ -1010,7 +1010,7 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    {/* Floating Stats Cards - Hidden on mobile */}
+                    {}
                     <div className="absolute -top-4 md:-top-8 -left-4 md:-left-8 bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-xl p-3 md:p-4 shadow-lg animate-float hidden md:block z-20">
                       <div className="flex items-center gap-2 md:gap-3">
                         <div className="w-10 h-10 md:w-11 md:h-11 bg-emerald-500/15 rounded-lg flex items-center justify-center">
@@ -1068,10 +1068,10 @@ const Portfolio = () => {
             </div>
           )}
 
-          {/* About Section */}
+          {}
           {activeSection === "about" && (
             <div className="animate-fade-in space-y-10 md:space-y-14 pb-20 mt-10">
-              {/* Simpler Header */}
+              {}
               <div className="space-y-3 mb-10">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                   About Me
@@ -1083,7 +1083,7 @@ const Portfolio = () => {
               </div>
 
               <div className="grid lg:grid-cols-2 gap-8 md:gap-10">
-                {/* Profile Card - More Natural */}
+                {}
                 <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-8 md:p-10 border border-slate-800 hover:border-slate-700 transition-colors duration-300">
                   <div className="flex items-start gap-5 mb-8">
                     <div className="relative flex-shrink-0">
@@ -1140,7 +1140,7 @@ const Portfolio = () => {
                       deployment & continuous improvement.
                     </p>
 
-                    {/* Key Wins */}
+                    {}
                     <div className="pt-3">
                       <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wide">
                         Key Contributions
@@ -1179,7 +1179,7 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                {/* Education Card - Cleaner Layout */}
+                {}
                 <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-8 md:p-10 border border-slate-800">
                   <div className="flex items-center gap-3 mb-8">
                     <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700">
@@ -1196,7 +1196,7 @@ const Portfolio = () => {
                   </div>
 
                   <div className="space-y-6">
-                    {/* B.Tech */}
+                    {}
                     <div className="relative pl-6 border-l-2 border-slate-800 hover:border-teal-600 transition-colors duration-300">
                       <div className="absolute -left-[5px] top-2 w-2 h-2 bg-teal-500 rounded-full"></div>
                       <div className="pb-2">
@@ -1227,7 +1227,7 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    {/* +2 */}
+                    {}
                     <div className="relative pl-6 border-l-2 border-slate-800 hover:border-cyan-600 transition-colors duration-300">
                       <div className="absolute -left-[5px] top-2 w-2 h-2 bg-cyan-500 rounded-full"></div>
                       <div className="pb-2">
@@ -1253,7 +1253,7 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    {/* Class 10 */}
+                    {}
                     <div className="relative pl-6 border-l-2 border-slate-800 hover:border-emerald-600 transition-colors duration-300">
                       <div className="absolute -left-[5px] top-2 w-2 h-2 bg-emerald-500 rounded-full"></div>
                       <div>
@@ -1280,7 +1280,7 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              {/* What I Do - Grid Cards */}
+              {}
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700">
@@ -1333,7 +1333,7 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              {/* Journey & Approach - Side by Side */}
+              {}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-slate-900/80 rounded-lg p-8 border border-slate-800 hover:border-teal-600 transition-colors duration-300">
                   <div className="flex items-center gap-3 mb-5">
@@ -1377,11 +1377,11 @@ const Portfolio = () => {
               </div>
             </div>
           )}
-          {/* Skills Section */}
+          {}
 
           {activeSection === "skills" && (
             <div className="animate-fade-in space-y-10 pb-20 mt-10 min-h-[10vh]">
-              {/* Header */}
+              {}
               <div className="space-y-3 mb-10">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                   Skills & Technologies
@@ -1393,7 +1393,7 @@ const Portfolio = () => {
                 </p>
               </div>
 
-              {/* Category Filter */}
+              {}
               <div className="flex flex-wrap gap-2 mb-8">
                 {categories.map((category) => (
                   <button
@@ -1415,7 +1415,7 @@ const Portfolio = () => {
                 ))}
               </div>
 
-              {/* Skills Grid */}
+              {}
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {filteredSkills.map((skill, index) => (
                   <div
@@ -1427,7 +1427,7 @@ const Portfolio = () => {
                     }}
                   >
                     <div className="space-y-4">
-                      {/* Header */}
+                      {}
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-center gap-3 flex-1 min-w-0">
                           <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded bg-slate-800 border border-slate-700 group-hover:bg-teal-600/10 group-hover:border-teal-600 transition-all duration-300">
@@ -1444,12 +1444,12 @@ const Portfolio = () => {
                         </div>
                       </div>
 
-                      {/* Description (keep this very real in your data) */}
+                      {}
                       <p className="text-sm text-gray-400 leading-relaxed line-clamp-2">
                         {skill.description}
                       </p>
 
-                      {/* Proficiency row (no % shown anywhere) */}
+                      {}
                       <div className="flex items-center justify-between text-xs pt-1">
                         <span className="text-gray-300 font-medium">
                           {skill.level >= 90
@@ -1477,7 +1477,7 @@ const Portfolio = () => {
                 ))}
               </div>
 
-              {/* Stats Summary */}
+              {}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-slate-800">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-teal-400 mb-1">
@@ -1511,10 +1511,10 @@ const Portfolio = () => {
             </div>
           )}
 
-          {/* Experience Section */}
+          {}
           {activeSection === "experience" && (
             <div className="animate-fade-in space-y-10 pb-20 mt-10 max-w-7xl mx-auto">
-              {/* Header */}
+              {}
               <div className="space-y-3 mb-12">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                   Experience
@@ -1525,9 +1525,9 @@ const Portfolio = () => {
                 </p>
               </div>
 
-              {/* Timeline Container */}
+              {}
               <div className="relative">
-                {/* Vertical Timeline Line */}
+                {}
                 <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-teal-500 via-cyan-500 to-emerald-500 transform -translate-x-1/2"></div>
 
                 <div className="space-y-12 md:space-y-16">
@@ -1550,7 +1550,7 @@ const Portfolio = () => {
                         onMouseEnter={() => handleCardHover(index)}
                         onMouseLeave={handleCardLeave}
                       >
-                        {/* Timeline Dot - Animated on scroll */}
+                        {}
                         <div
                           className={`hidden md:flex absolute left-1/2 top-8 w-6 h-6 rounded-full transform -translate-x-1/2 z-10 border-4 border-slate-950 items-center justify-center transition-all duration-700 ease-in-out ${
                             isActive
@@ -1570,7 +1570,7 @@ const Portfolio = () => {
                           )}
                         </div>
 
-                        {/* Experience Card */}
+                        {}
                         <div
                           className={`md:w-[calc(50%-3rem)] ${
                             isEven ? "md:ml-0 md:mr-auto" : "md:ml-auto md:mr-0"
@@ -1583,23 +1583,23 @@ const Portfolio = () => {
                                 : "border-slate-800 hover:border-teal-600 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]"
                             }`}
                           >
-                            {/* Gradient Overlay on Hover */}
+                            {}
                             <div
                               className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                             ></div>
 
-                            {/* Content */}
+                            {}
                             <div className="relative z-10">
-                              {/* Header Section */}
+                              {}
                               <div className="flex items-start gap-4 mb-6">
-                                {/* Icon */}
+                                {}
                                 <div
                                   className={`flex-shrink-0 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${exp.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-500`}
                                 >
                                   <Icon size={28} className="text-white" />
                                 </div>
 
-                                {/* Title & Company */}
+                                {}
                                 <div className="flex-1 min-w-0">
                                   <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
                                     {exp.title}
@@ -1615,7 +1615,7 @@ const Portfolio = () => {
                                 </div>
                               </div>
 
-                              {/* Tags Section */}
+                              {}
                               <div className="flex flex-wrap gap-2 mb-4">
                                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-500/20 border border-cyan-500/40 rounded-md text-sm font-medium text-cyan-300">
                                   <MapPin size={14} />
@@ -1627,12 +1627,12 @@ const Portfolio = () => {
                                 </span>
                               </div>
 
-                              {/* Description */}
+                              {}
                               <p className="text-sm md:text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
                                 {exp.description}
                               </p>
 
-                              {/* Decorative Bottom Border */}
+                              {}
                               <div
                                 className={`absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r ${exp.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-xl`}
                               ></div>
@@ -1646,10 +1646,10 @@ const Portfolio = () => {
               </div>
             </div>
           )}
-          {/* Projects Section */}
+          {}
           {activeSection === "projects" && (
             <div className="animate-fade-in space-y-10 pb-20 mt-10 max-w-7xl mx-auto">
-              {/* Header */}
+              {}
               <div className="space-y-3 mb-10">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                   Projects
@@ -1660,7 +1660,7 @@ const Portfolio = () => {
                 </p>
               </div>
 
-              {/* Projects Grid */}
+              {}
               <div className="grid sm:grid-cols-2 gap-6">
                 {projects.map((project, index) => (
                   <div
@@ -1674,7 +1674,7 @@ const Portfolio = () => {
                       animationFillMode: "forwards",
                     }}
                   >
-                    {/* Project Image */}
+                    {}
                     <div
                       className={`relative w-full h-48 bg-gradient-to-br ${project.gradient} overflow-hidden`}
                     >
@@ -1691,9 +1691,9 @@ const Portfolio = () => {
                       )}
                     </div>
 
-                    {/* Content */}
+                    {}
                     <div className="p-6 space-y-4">
-                      {/* Title & Role */}
+                      {}
                       <div>
                         <h3 className="text-xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
                           {project.title}
@@ -1701,12 +1701,12 @@ const Portfolio = () => {
                         <p className="text-sm text-gray-500">{project.role}</p>
                       </div>
 
-                      {/* Description */}
+                      {}
                       <p className="text-sm text-gray-400 leading-relaxed">
                         {project.description}
                       </p>
 
-                      {/* Tech Stack */}
+                      {}
                       <div className="flex flex-wrap gap-2 pt-2">
                         {project.tech.map((tech, i) => (
                           <span
@@ -1724,10 +1724,10 @@ const Portfolio = () => {
             </div>
           )}
 
-          {/* Contact Section */}
+          {}
           {activeSection === "contact" && (
             <div className="animate-fade-in space-y-10 pb-20 mt-10 max-w-7xl mx-auto">
-              {/* Header */}
+              {}
               <div className="space-y-3 mb-12">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                   Get In Touch
@@ -1739,7 +1739,7 @@ const Portfolio = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                {/* Contact Info Cards */}
+                {}
                 <div
                   className="space-y-4 opacity-0 animate-fade-in-up"
                   style={{
@@ -1747,7 +1747,7 @@ const Portfolio = () => {
                     animationFillMode: "forwards",
                   }}
                 >
-                  {/* Email */}
+                  {}
                   <div className="bg-slate-900 rounded-xl p-6 border border-slate-800 hover:border-teal-600 transition-all duration-300 group">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -1765,7 +1765,7 @@ const Portfolio = () => {
                     </div>
                   </div>
 
-                  {/* Phone */}
+                  {}
                   <div className="bg-slate-900 rounded-xl p-6 border border-slate-800 hover:border-teal-600 transition-all duration-300 group">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -1783,7 +1783,7 @@ const Portfolio = () => {
                     </div>
                   </div>
 
-                  {/* LinkedIn */}
+                  {}
                   <div className="bg-slate-900 rounded-xl p-6 border border-slate-800 hover:border-teal-600 transition-all duration-300 group">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -1803,7 +1803,7 @@ const Portfolio = () => {
                     </div>
                   </div>
 
-                  {/* Location */}
+                  {}
                   <div className="bg-slate-900 rounded-xl p-6 border border-slate-800 hover:border-teal-600 transition-all duration-300 group">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-gradient-to-r from-cyan-600 to-teal-600 rounded-lg group-hover:scale-110 transition-transform duration-300">
@@ -1819,7 +1819,7 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                {/* Contact Form */}
+                {}
                 <div
                   className="bg-slate-900 rounded-xl p-6 md:p-8 border border-slate-800 space-y-6 opacity-0 animate-fade-in-up"
                   style={{
@@ -1911,57 +1911,58 @@ const Portfolio = () => {
         </div>
       </main>
 
-      {/* Footer */}
-   <footer className="mb-16 md:mb-0 relative z-10 bg-slate-900/50 backdrop-blur-xl border-t border-slate-800 py-6 md:py-8 mt-12 md:mt-20 lg:ml-20 animate-fade-in-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col justify-center items-center gap-4 text-center">
+      {}
+      <footer className="mb-16 md:mb-0 relative z-10 bg-slate-900/50 backdrop-blur-xl border-t border-slate-800 py-6 md:py-8 mt-12 md:mt-20 lg:ml-20 animate-fade-in-up">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-center items-center gap-4 text-center">
+            <p className="text-sm md:text-base text-gray-400">
+              Designed & built by{" "}
+              <span className="text-cyan-400 font-medium">Shreya Mahajan</span>{" "}
+              — © 2025
+            </p>
 
-      <p className="text-sm md:text-base text-gray-400">
-        Designed & built by{" "}
-        <span className="text-cyan-400 font-medium">Shreya Mahajan</span> — © 2025
-      </p>
+            <div className="flex items-center justify-center gap-4 md:gap-6">
+              <a
+                href="https://github.com/ShreyaMahajan1"
+                target="_blank"
+                className="text-gray-400 hover:text-cyan-400 transition-transform hover:scale-110"
+              >
+                <Github size={22} />
+              </a>
 
-      <div className="flex items-center justify-center gap-4 md:gap-6">
+              <a
+                href="https://www.linkedin.com/in/shreya-mahajann/"
+                target="_blank"
+                className="text-gray-400 hover:text-teal-400 transition-transform hover:scale-110"
+              >
+                <Linkedin size={22} />
+              </a>
 
-        <a
-          href="https://github.com/ShreyaMahajan1"
-          target="_blank"
-          className="text-gray-400 hover:text-cyan-400 transition-transform hover:scale-110"
-        >
-          <Github size={22} />
-        </a>
+              <a
+                href="tel:+918727828878"
+                className="text-gray-400 hover:text-emerald-400 transition-transform hover:scale-110"
+              >
+                <Phone size={22} />
+              </a>
 
-        <a
-          href="https://www.linkedin.com/in/shreya-mahajann/"
-          target="_blank"
-          className="text-gray-400 hover:text-teal-400 transition-transform hover:scale-110"
-        >
-          <Linkedin size={22} />
-        </a>
-
-        <a
-          href="tel:+918727828878"
-          className="text-gray-400 hover:text-emerald-400 transition-transform hover:scale-110"
-        >
-          <Phone size={22} />
-        </a>
-
-        {/* AI icon in SAME row on mobile */}
-        <div className="flex md:hidden">
-          <AIAgent onContactClick={handleContactClick} onSectionChange={setActiveSection} />
+              {}
+              <div className="flex md:hidden">
+                <AIAgent
+                  onContactClick={handleContactClick}
+                  onSectionChange={setActiveSection}
+                />
+              </div>
+              {}
+              <div className="hidden md:block">
+                <AIAgent
+                  onContactClick={handleContactClick}
+                  onSectionChange={setActiveSection}
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        {/* Floating AI only desktop */}
-<div className="hidden md:block">
-  <AIAgent onContactClick={handleContactClick} onSectionChange={setActiveSection} />
-</div>
-
-      </div>
-
-    </div>
-  </div>
-</footer>
-
-
+      </footer>
 
       <style>{`
         @keyframes fade-in {
@@ -2061,17 +2062,14 @@ const Portfolio = () => {
           animation-delay: 4s;
         }
 
-        /* Safe area for mobile devices */
         .safe-area-pb {
           padding-bottom: env(safe-area-inset-bottom);
         }
 
-        /* Smooth scrolling */
         html {
           scroll-behavior: smooth;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
           width: 10px;
         }

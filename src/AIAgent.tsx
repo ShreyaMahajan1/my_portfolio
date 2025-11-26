@@ -4,7 +4,7 @@ import {
   X,
   Send,
   Bot,
-  User,
+User,
   Sparkles,
   Zap,
   Code,
@@ -44,9 +44,13 @@ const AIAgent: React.FC<AIAgentProps> = ({
   const [pendingNavigation, setPendingNavigation] = useState<string | null>(
     null
   );
+const knownSkills = [
+  "react","typescript","javascript","next","next.js","tailwind","css",
+  "node","node.js","express","mongodb","redis","react native","mobile",
+  "web","frontend","backend","fullstack","api","docker","figma"
+];
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  // NEW: wrapper ref for button + chat
   const agentRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToBottom = () => {
@@ -57,7 +61,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
     scrollToBottom();
   }, [messages]);
 
-  // NEW: close chat on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (
@@ -99,7 +102,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
   ): { text: string; suggestNavigation?: string } => {
     const message = userMessage.toLowerCase();
 
-    // Check for yes/confirmation responses
     if (
       message.match(
         /^(yes|yeah|sure|ok|okay|yep|yup|please|go ahead|absolutely|definitely)$/i
@@ -108,7 +110,39 @@ const AIAgent: React.FC<AIAgentProps> = ({
       return { text: "NAVIGATE_PENDING" };
     }
 
-    // Projects
+if (
+  (message.includes("can she") || message.includes("can shreya")) &&
+  (message.includes("build") ||
+    message.includes("make") ||
+    message.includes("create") ||
+    message.includes("develop")) &&
+  (message.includes("project") ||
+    message.includes("website") ||
+    message.includes("app") ||
+    message.includes("application") ||
+    message.includes("platform"))
+) {
+
+  const foundSkill = knownSkills.find((skill) => message.includes(skill));
+
+  if (foundSkill) {
+    return {
+      text:
+        `Yes, absolutely! Shreya can build a complete ${foundSkill.toUpperCase()} project.\n\n` +
+        `She has strong experience in ${foundSkill} and has already delivered production-ready applications using it.\n\n` +
+        `Would you like to see some of her existing projects?`,
+      suggestNavigation: "projects",
+    };
+  } else {
+    return {
+      text:
+        "Shreya currently doesn't work in that particular technology, but she is open to learning new tools if required. 😊\n\n" +
+        "Would you like to know the technologies she is experienced in?",
+      suggestNavigation: "skills",
+    };
+  }
+}
+
     if (
       message.includes("project") ||
       message.includes("work") ||
@@ -120,7 +154,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Specific project queries
     if (message.includes("dfinance")) {
       return {
         text: "DFinance is a decentralized lending and borrowing platform built on Internet Computer Protocol (ICP). It features AMM-based DEX, token issuance, liquidity farming, and a unique buy & burn mechanism. Shreya worked on the frontend using React and TypeScript.\n\nWant to see more projects?",
@@ -156,7 +189,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Frontend skills
     if (message.includes("frontend")) {
       return {
         text: "Shreya's frontend expertise includes:\n\n• React.js (3+ years) - Used in all major projects\n• Next.js (2+ years) - SEO-friendly apps\n• TypeScript (2+ years) - Type-safe development\n• Tailwind CSS (3+ years) - Modern styling\n• JavaScript ES6+ (4+ years)\n• HTML5 & CSS3 (4+ years)\n• Redux - State management\n• Responsive design & accessibility\n\nShould I take you to the skills section?",
@@ -164,7 +196,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Backend skills
     if (
       message.includes("backend") ||
       message.includes("api") ||
@@ -176,7 +207,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // General skills
     if (
       message.includes("skill") ||
       message.includes("technology") ||
@@ -188,7 +218,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Experience - Current job
     if (
       message.includes("current") &&
       (message.includes("job") ||
@@ -201,7 +230,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // QuadB Technologies
     if (message.includes("quadb")) {
       return {
         text: "At QuadB Technologies (May 2024 - Present), Shreya:\n\n• Develops scalable web, mobile, and Web3 applications\n• Built DFinance DeFi platform for 1,000+ users\n• Led development of 50+ screen React Native App\n• Implemented Aadhaar KYC with 95% success rate\n• Created AI automation agents improving efficiency by 20%\n\nWant to see her full work history?",
@@ -209,7 +237,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Experience - General
     if (
       message.includes("experience") ||
       message.includes("job") ||
@@ -222,7 +249,83 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Contact information
+    if (
+      (message.includes("when") ||
+        message.includes("which year") ||
+        message.includes("what year")) &&
+      (message.includes("btech") ||
+        message.includes("b.tech") ||
+        message.includes("degree") ||
+        message.includes("graduation") ||
+        message.includes("graduate") ||
+        message.includes("engineering") ||
+        message.includes("college") ||
+        message.includes("university"))
+    ) {
+      return {
+        text:
+          "Shreya completed her B.Tech in Computer Science Engineering from Guru Nanak Dev University in **2024** (she studied there from 2020–2024).\n\nWould you like to see more about her education or projects?",
+        suggestNavigation: "about",
+      };
+    }
+
+    if (
+      (message.includes("when") ||
+        message.includes("which year") ||
+        message.includes("what year")) &&
+      (message.includes("12th") ||
+        message.includes("+2") ||
+        message.includes("plus two") ||
+        message.includes("higher secondary") ||
+        message.includes("senior secondary"))
+    ) {
+      return {
+        text:
+          "Shreya completed her Higher Secondary (+2, Non-Medical) in **2020** from Police DAV Public School, Jalandhar.\n\nWant to know more about her education or early journey?",
+        suggestNavigation: "about",
+      };
+    }
+
+    if (
+      (message.includes("when") ||
+        message.includes("which year") ||
+        message.includes("what year")) &&
+      (message.includes("10th") ||
+        message.includes("tenth") ||
+        message.includes("matric") ||
+        message.includes("matriculation") ||
+        message.includes("icse") ||
+        message.includes("st. joseph"))
+    ) {
+      return {
+        text:
+          "Shreya completed her 10th (ICSE Board) in **2018** at St. Joseph Convent School, Jalandhar.\n\nWant to see how she progressed from school to engineering?",
+        suggestNavigation: "about",
+      };
+    }
+
+    if (
+      (message.includes("when") ||
+        message.includes("which year") ||
+        message.includes("what year")) &&
+      (message.includes("pass") ||
+        message.includes("complete") ||
+        message.includes("finish")) &&
+      (message.includes("education") ||
+        message.includes("school") ||
+        message.includes("study"))
+    ) {
+      return {
+        text:
+          "Here's a quick timeline of when Shreya passed her major education milestones:\n\n" +
+          "• 10th (ICSE) – **2018**\n" +
+          "• 12th / +2 (Non-Medical) – **2020**\n" +
+          "• B.Tech in Computer Science Engineering – **2024**\n\n" +
+          "Would you like to explore her education section or projects next?",
+        suggestNavigation: "about",
+      };
+    }
+
     if (
       message.includes("contact") ||
       message.includes("email") ||
@@ -235,7 +338,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Hiring/availability
     if (
       message.includes("hire") ||
       message.includes("available") ||
@@ -248,7 +350,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Education
     if (
       message.includes("education") ||
       message.includes("degree") ||
@@ -261,7 +362,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Mobile development
     if (
       message.includes("mobile") ||
       message.includes("react native") ||
@@ -273,7 +373,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Web3/Blockchain
     if (
       message.includes("web3") ||
       message.includes("blockchain") ||
@@ -286,7 +385,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Greetings
     if (
       message.match(
         /^(hello|hi|hey|greetings|good morning|good afternoon|good evening)$/i
@@ -297,7 +395,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // About/Introduction
     if (
       message.includes("about") ||
       message.includes("who is") ||
@@ -309,7 +406,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Achievements
     if (message.includes("achievement") || message.includes("accomplishment")) {
       return {
         text: "Shreya's key achievements:\n\n✅ Built DFinance DeFi platform (1,000+ users)\n✅ Led React Native app with 50+ screens to production\n✅ Implemented KYC system with 95% success rate\n✅ Created AI automation improving efficiency by 20%\n✅ Developed Stringly app (1,000+ active users)\n✅ Built 5 web apps + mobile app for Heebee Coffee\n\nImpressive, right? Want to see her projects?",
@@ -317,7 +413,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Database
     if (
       message.includes("database") ||
       message.includes("mongodb") ||
@@ -329,7 +424,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Tools
     if (
       message.includes("tools") ||
       message.includes("git") ||
@@ -341,7 +435,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Location
     if (
       message.includes("location") ||
       message.includes("where") ||
@@ -353,7 +446,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // LinkedIn/Social
     if (
       message.includes("linkedin") ||
       message.includes("github") ||
@@ -365,7 +457,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Resume/CV
     if (
       message.includes("resume") ||
       message.includes("cv") ||
@@ -377,7 +468,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Years of experience
     if (message.includes("years") || message.includes("how long")) {
       return {
         text: "Shreya has 1.5+ years of professional development experience:\n\n• QuadB Technologies (8+ months)\n• O7 Services (6 months internship)\n• Error to Array (6 months internship)\n• Plus numerous personal projects\n\nShe's been coding for 4+ years total if we include her learning journey!\n\nWant to see her experience timeline?",
@@ -385,7 +475,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Specialization
     if (
       message.includes("specialize") ||
       message.includes("expert") ||
@@ -397,7 +486,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Team/Leadership
     if (
       message.includes("team") ||
       message.includes("lead") ||
@@ -409,7 +497,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    // Default response
     return {
       text: "I'm here to help you learn about Shreya Mahajan! I can tell you about:\n\n💻 Projects - DFinance, BlockseBlock, Heebee Coffee, Stringly\n🛠️ Skills - React, Node.js, TypeScript, React Native\n💼 Experience - QuadB Technologies, O7 Services\n📧 Contact - How to reach her\n\nWhat interests you most?",
     };
@@ -430,11 +517,9 @@ const AIAgent: React.FC<AIAgentProps> = ({
     setInputValue("");
     setIsTyping(true);
 
-    // Simulate AI thinking time
     setTimeout(() => {
       const response = generateAIResponse(currentInput);
 
-      // Handle yes/confirmation for pending navigation
       if (response.text === "NAVIGATE_PENDING" && pendingNavigation) {
         const section = pendingNavigation;
         setPendingNavigation(null);
@@ -462,7 +547,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
 
       setMessages((prev) => [...prev, aiResponse]);
 
-      // Store pending navigation if suggested
       if (response.suggestNavigation) {
         setPendingNavigation(response.suggestNavigation);
       }
@@ -488,7 +572,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
 
   return (
     <div ref={agentRef}>
-      {/* AI Chat Button */}
+      {}
       <button
         onClick={() => setIsOpen(true)}
         className="relative md:fixed md:bottom-6 md:right-6 md:z-50 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
@@ -500,10 +584,10 @@ const AIAgent: React.FC<AIAgentProps> = ({
         <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-3 h-3 md:w-4 md:h-4 bg-emerald-400 rounded-full animate-pulse"></div>
       </button>
 
-      {/* Chat Interface */}
+      {}
       {isOpen && (
         <div className="fixed bottom-24 right-2 left-2 md:bottom-24 md:right-6 md:left-auto z-50 md:w-96 max-w-[calc(100vw-1rem)] md:max-w-[calc(100vw-2rem)] h-[450px] md:h-[500px] bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-fade-in">
-          {/* Header */}
+          {}
           <div className="flex items-center justify-between p-3 md:p-4 border-b border-slate-700 bg-gradient-to-r from-teal-600/10 to-cyan-600/10">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center">
@@ -524,7 +608,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
             </button>
           </div>
 
-          {/* Quick Actions */}
+          {}
           <div className="p-2 md:p-3 border-b border-slate-700/50">
             <div className="grid grid-cols-2 gap-1.5 md:gap-2">
               {quickActions.map((action, index) => {
@@ -545,7 +629,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
             </div>
           </div>
 
-          {/* Messages */}
+          {}
           <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4">
             {messages.map((message) => (
               <div
@@ -604,7 +688,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
+          {}
           <div className="p-2.5 md:p-4 border-t border-slate-700">
             <div className="flex gap-1.5 md:gap-2">
               <input

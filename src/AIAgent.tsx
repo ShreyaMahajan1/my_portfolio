@@ -4,7 +4,7 @@ import {
   X,
   Send,
   Bot,
-User,
+  User,
   Sparkles,
   Zap,
   Code,
@@ -44,11 +44,299 @@ const AIAgent: React.FC<AIAgentProps> = ({
   const [pendingNavigation, setPendingNavigation] = useState<string | null>(
     null
   );
-const knownSkills = [
-  "react","typescript","javascript","next","next.js","tailwind","css",
-  "node","node.js","express","mongodb","redis","react native","mobile",
-  "web","frontend","backend","fullstack","api","docker","figma"
-];
+
+  const skillDetails = [
+    {
+      name: "React.js",
+      keywords: ["react", "react.js"],
+      response:
+        "Yes, absolutely! Shreya can confidently work on a React.js project. ⚛️\n\n" +
+        "She has 3+ years of experience using React in production for dashboards, KYC flows, complex forms, and reusable component systems.\n\n" +
+        "She can take ownership of feature development, performance optimization, and UI polish.\n\n" +
+        "Would you like to see some of her React-based projects?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "Next.js",
+      keywords: ["next", "nextjs", "next.js"],
+      response:
+        "Yes! Shreya can definitely work on a Next.js project. ▲\n\n" +
+        "She has 2+ years of experience building SEO-friendly, production apps with Next.js and deploying them on Vercel.\n\n" +
+        "She’s comfortable with SSR/SSG, dynamic routing, API routes, env configs, and incremental deployments.\n\n" +
+        "Want to check out some of her Next.js work?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "TypeScript",
+      keywords: ["typescript", "ts"],
+      response:
+        "Yes, Shreya can work on a TypeScript-based project without any issues. 📘\n\n" +
+        "She has 2+ years of experience using TypeScript in both frontend and backend codebases for safer, more maintainable apps.\n\n" +
+        "She is comfortable with types, generics, interfaces, and structuring large codebases.\n\n" +
+        "Would you like to see her TypeScript-heavy projects?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "Tailwind CSS",
+      keywords: ["tailwind", "tailwindcss", "tailwind css"],
+      response:
+        "Yes, Shreya can easily work on a Tailwind CSS project. 🎨\n\n" +
+        "For 3+ years, Tailwind has been her go-to styling tool for responsive layouts, design systems, and polished UI.\n\n" +
+        "She can help you ship fast while keeping the design clean and consistent.\n\n" +
+        "Want to see her Tailwind-based interfaces?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "JavaScript (ES6+)",
+      keywords: ["javascript", "js", "es6"],
+      response:
+        "Yes! Shreya is very comfortable working on projects with modern JavaScript (ES6+). 🟨\n\n" +
+        "She has 4+ years of experience with async workflows, API integrations, array/object patterns, and SPA logic.\n\n" +
+        "Most of her applications are driven by solid JavaScript fundamentals.\n\n" +
+        "Would you like to see some of those projects?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "React Native",
+      keywords: ["react native", "rn", "mobile app"],
+      response:
+        "Yes, Shreya can work on a React Native mobile app project. 📱\n\n" +
+        "She has shipped a 50+ screen production app with auth, navigation, camera, charts, and hardware integrations.\n\n" +
+        "She can help with new features, refactors, or full app builds.\n\n" +
+        "Want to see her mobile projects like Stringly or Heebee?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "HTML5 & CSS3",
+      keywords: ["html", "html5", "css", "css3"],
+      response:
+        "Yes, she can work on any HTML/CSS based project. 🌐\n\n" +
+        "She has 4+ years of experience building responsive, accessible, and well-structured UIs using HTML5 & CSS3.\n\n" +
+        "Pixel polish and clean layout are things she cares about.\n\n" +
+        "Shall I show you her UI-heavy work?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "Bootstrap",
+      keywords: ["bootstrap"],
+      response:
+        "Yes, Shreya can work on a Bootstrap-based project. 🅱️\n\n" +
+        "She has used Bootstrap for internal dashboards and quick prototypes where speed matters more than heavy customization.\n\n" +
+        "She can help modernize or extend an existing Bootstrap UI.\n\n" +
+        "Want to know more about her frontend experience?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Redux",
+      keywords: ["redux"],
+      response:
+        "Yes, she can work on a Redux-based project. 🔄\n\n" +
+        "She has used Redux to manage complex shared state for multi-screen apps with multiple data flows and caching.\n\n" +
+        "She understands store design, slices, middlewares, and async flows.\n\n" +
+        "Would you like to know more about her frontend skills?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Sass/SCSS",
+      keywords: ["sass", "scss"],
+      response:
+        "Yes, Shreya can work on a Sass/SCSS codebase. 💅\n\n" +
+        "She has experience maintaining SCSS-heavy projects with variables, mixins, and modular structure.\n\n" +
+        "This was her primary styling approach before she moved fully to Tailwind.\n\n" +
+        "Want to explore her UI skill set?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Node.js",
+      keywords: ["node", "node.js", "nodejs"],
+      response:
+        "Yes, Shreya can work on a Node.js backend project. 🟢\n\n" +
+        "She has 3+ years of experience building scalable REST APIs for auth flows, admin dashboards, and automation services.\n\n" +
+        "She’s comfortable with architecture, middlewares, and performance considerations.\n\n" +
+        "Would you like to see more of her backend experience?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Express.js",
+      keywords: ["express", "express.js"],
+      response:
+        "Yes, she can work on an Express.js server project. 🚂\n\n" +
+        "She uses Express daily for routing, middleware, logging, and role-based access control in production apps.\n\n" +
+        "She can help create new endpoints or improve an existing API.\n\n" +
+        "Want to explore her API work?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "RESTful APIs",
+      keywords: ["rest", "restful", "rest api", "restful api"],
+      response:
+        "Yes, Shreya can design and work with RESTful APIs. 🔌\n\n" +
+        "She has built and consumed APIs for both web and mobile clients, with proper status codes, validations, and error handling.\n\n" +
+        "She can help structure endpoints cleanly and make them easy to integrate.\n\n" +
+        "Would you like to see projects where she worked heavily with APIs?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "JWT Authentication",
+      keywords: ["jwt", "jwt auth", "authentication", "auth token"],
+      response:
+        "Yes, she can work on projects using JWT authentication. 🔐\n\n" +
+        "She has implemented JWT-based auth in production onboarding flows with secure session handling and protected routes.\n\n" +
+        "She can help you secure your app end-to-end.\n\n" +
+        "Want to know more about her backend work?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Socket.io",
+      keywords: ["socket", "socket.io", "websocket"],
+      response:
+        "Yes, Shreya can work on real-time features using Socket.io. 🔌\n\n" +
+        "She has used it for notifications, activity feeds, and real-time updates.\n\n" +
+        "She understands the client–server event model and handling live data.\n\n" +
+        "Would you like to know more about her real-time work?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "MongoDB",
+      keywords: ["mongo", "mongodb"],
+      response:
+        "Yes, she can work on projects using MongoDB. 🍃\n\n" +
+        "She has used MongoDB for user data, activity logs, dashboard metrics, and aggregation-based reporting.\n\n" +
+        "She’s comfortable with schema design, queries, and performance tuning.\n\n" +
+        "Want to explore her backend stack?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Redis",
+      keywords: ["redis"],
+      response:
+        "Yes, Shreya can work on a Redis-backed project. 🔴\n\n" +
+        "She has used Redis for session caching and speeding up login and frequently accessed data flows.\n\n" +
+        "She can help introduce caching layers for performance.\n\n" +
+        "Shall I show more details of her backend skills?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Git & GitHub",
+      keywords: ["git", "github"],
+      response:
+        "Yes, she’s very comfortable working in Git/GitHub based workflows. 🔀\n\n" +
+        "She handles branching strategies, PR reviews, conflict resolution, and collaborative development daily.\n\n" +
+        "She fits smoothly into existing team processes.\n\n" +
+        "Want to see more about her experience working in teams?",
+      suggestNavigation: "experience",
+    },
+    {
+      name: "Docker",
+      keywords: ["docker"],
+      response:
+        "Yes, Shreya can work on Dockerized projects. 🐳\n\n" +
+        "She has containerized backend services to make onboarding and deployments easier and more consistent.\n\n" +
+        "She can help you define Dockerfiles and basic Docker-compose setups.\n\n" +
+        "Want to know more about her DevOps-related skills?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Postman",
+      keywords: ["postman"],
+      response:
+        "Yes, she uses Postman daily for API work. 📮\n\n" +
+        "She’s comfortable setting up collections, auth tokens, environment variables, and automated testing flows.\n\n" +
+        "She can help debug or document your APIs efficiently.\n\n" +
+        "Interested in her API development experience?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "npm",
+      keywords: ["npm"],
+      response:
+        "Yes, she’s completely comfortable working with npm-based projects. 📦\n\n" +
+        "She manages scripts, dependencies, and monorepos using npm in her daily workflow.\n\n" +
+        "Most of her JavaScript/TypeScript projects rely on it.\n\n" +
+        "Want to see some of those projects?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "Yarn",
+      keywords: ["yarn"],
+      response:
+        "Yes, Shreya can work with Yarn-based setups as well. 📦\n\n" +
+        "She has experience with both npm and Yarn in real-world projects.\n\n" +
+        "She can adapt to whichever package manager your project uses.\n\n" +
+        "Would you like to know about her tooling preferences?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "ESLint",
+      keywords: ["eslint"],
+      response:
+        "Yes, she can work in projects using ESLint. ✨\n\n" +
+        "She sets up and follows linting rules to keep codebases clean and consistent.\n\n" +
+        "This makes onboarding other developers and doing PR reviews much smoother.\n\n" +
+        "Want to know more about her code quality practices?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Prettier",
+      keywords: ["prettier"],
+      response:
+        "Yes, Shreya is used to working with Prettier formatted codebases. ✨\n\n" +
+        "She keeps formatting automated so teams can focus on logic instead of style debates.\n\n" +
+        "She can help you standardize formatting across your repo.\n\n" +
+        "Want to explore her tooling stack?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Figma",
+      keywords: ["figma"],
+      response:
+        "Yes, she can collaborate on projects that use Figma for design. 🎯\n\n" +
+        "She has hands-on experience reading design specs, extracting styles, and converting them into pixel-accurate UI.\n\n" +
+        "She can also help in fine-tuning flows and basic design tweaks.\n\n" +
+        "Want to see how she bridges design and development?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "Webpack",
+      keywords: ["webpack"],
+      response:
+        "Yes, she can work on Webpack-based projects. ⚡\n\n" +
+        "She has used Webpack where custom bundler configuration was needed for performance and DX.\n\n" +
+        "She can help adjust builds, loaders, and plugins when required.\n\n" +
+        "Want to explore her experience with tooling?",
+      suggestNavigation: "skills",
+    },
+    {
+      name: "Vite",
+      keywords: ["vite"],
+      response:
+        "Yes, Shreya can work on projects that use Vite. ⚡\n\n" +
+        "She has used Vite for fast development environments and modern frontend setups.\n\n" +
+        "She enjoys the improved dev experience and quick feedback loop.\n\n" +
+        "Want to see some of her modern frontend projects?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "Vercel",
+      keywords: ["vercel"],
+      response:
+        "Yes, absolutely! Shreya can work on projects deployed or built around Vercel. ☁️\n\n" +
+        "She has deployed multiple production-ready apps on Vercel, especially Next.js and TypeScript-based projects.\n\n" +
+        "She’s comfortable with preview deployments, env variables, serverless functions, and custom domains.\n\n" +
+        "Would you like to see some of her Vercel-deployed projects?",
+      suggestNavigation: "projects",
+    },
+    {
+      name: "Netlify",
+      keywords: ["netlify"],
+      response:
+        "Yes, she can also work on projects using Netlify. ☁️\n\n" +
+        "She has experience deploying SPAs and static sites with CI-style workflows on Netlify.\n\n" +
+        "She can help you configure builds, redirects, and environment variables.\n\n" +
+        "Want to know more about her deployment experience?",
+      suggestNavigation: "projects",
+    },
+  ];
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const agentRef = useRef<HTMLDivElement | null>(null);
@@ -110,38 +398,44 @@ const knownSkills = [
       return { text: "NAVIGATE_PENDING" };
     }
 
-if (
-  (message.includes("can she") || message.includes("can shreya")) &&
-  (message.includes("build") ||
-    message.includes("make") ||
-    message.includes("create") ||
-    message.includes("develop")) &&
-  (message.includes("project") ||
-    message.includes("website") ||
-    message.includes("app") ||
-    message.includes("application") ||
-    message.includes("platform"))
-) {
+    // Generic "can she work/build ... project" handler for all skills
+    if (
+      (message.includes("can she") || message.includes("can shreya")) &&
+      (message.includes("build") ||
+        message.includes("make") ||
+        message.includes("create") ||
+        message.includes("develop") ||
+        message.includes("work") ||
+        message.includes("do")) &&
+      (message.includes("project") ||
+        message.includes("website") ||
+        message.includes("app") ||
+        message.includes("application") ||
+        message.includes("platform"))
+    ) {
+      const foundSkill = skillDetails.find((skill) =>
+        skill.keywords.some((kw) => message.includes(kw))
+      );
 
-  const foundSkill = knownSkills.find((skill) => message.includes(skill));
-
-  if (foundSkill) {
-    return {
-      text:
-        `Yes, absolutely! Shreya can build a complete ${foundSkill.toUpperCase()} project.\n\n` +
-        `She has strong experience in ${foundSkill} and has already delivered production-ready applications using it.\n\n` +
-        `Would you like to see some of her existing projects?`,
-      suggestNavigation: "projects",
-    };
-  } else {
-    return {
-      text:
-        "Shreya currently doesn't work in that particular technology, but she is open to learning new tools if required. 😊\n\n" +
-        "Would you like to know the technologies she is experienced in?",
-      suggestNavigation: "skills",
-    };
-  }
-}
+      if (foundSkill) {
+        return {
+          text: foundSkill.response,
+          suggestNavigation: foundSkill.suggestNavigation as
+            | "projects"
+            | "skills"
+            | "experience"
+            | "contact"
+            | "about",
+        };
+      } else {
+        return {
+          text:
+            "Shreya currently doesn't work in that particular technology, but she is open to learning new tools if required. 😊\n\n" +
+            "Would you like to know the technologies she is experienced in?",
+          suggestNavigation: "skills",
+        };
+      }
+    }
 
     if (
       message.includes("project") ||
@@ -263,8 +557,7 @@ if (
         message.includes("university"))
     ) {
       return {
-        text:
-          "Shreya completed her B.Tech in Computer Science Engineering from Guru Nanak Dev University in **2024** (she studied there from 2020–2024).\n\nWould you like to see more about her education or projects?",
+        text: "Shreya completed her B.Tech in Computer Science Engineering from Guru Nanak Dev University in **2024** (she studied there from 2020–2024).\n\nWould you like to see more about her education or projects?",
         suggestNavigation: "about",
       };
     }
@@ -280,8 +573,7 @@ if (
         message.includes("senior secondary"))
     ) {
       return {
-        text:
-          "Shreya completed her Higher Secondary (+2, Non-Medical) in **2020** from Police DAV Public School, Jalandhar.\n\nWant to know more about her education or early journey?",
+        text: "Shreya completed her Higher Secondary (+2, Non-Medical) in **2020** from Police DAV Public School, Jalandhar.\n\nWant to know more about her education or early journey?",
         suggestNavigation: "about",
       };
     }
@@ -298,8 +590,7 @@ if (
         message.includes("st. joseph"))
     ) {
       return {
-        text:
-          "Shreya completed her 10th (ICSE Board) in **2018** at St. Joseph Convent School, Jalandhar.\n\nWant to see how she progressed from school to engineering?",
+        text: "Shreya completed her 10th (ICSE Board) in **2018** at St. Joseph Convent School, Jalandhar.\n\nWant to see how she progressed from school to engineering?",
         suggestNavigation: "about",
       };
     }
@@ -572,10 +863,9 @@ if (
 
   return (
     <div ref={agentRef}>
-      {}
       <button
         onClick={() => setIsOpen(true)}
-        className="relative md:fixed md:bottom-6 md:right-6 md:z-50 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+        className="fixed top-40 right-4 md:top-auto md:bottom-6 md:right-6 z-50 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
       >
         <MessageCircle
           size={20}
@@ -584,10 +874,8 @@ if (
         <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-3 h-3 md:w-4 md:h-4 bg-emerald-400 rounded-full animate-pulse"></div>
       </button>
 
-      {}
       {isOpen && (
         <div className="fixed bottom-24 right-2 left-2 md:bottom-24 md:right-6 md:left-auto z-50 md:w-96 max-w-[calc(100vw-1rem)] md:max-w-[calc(100vw-2rem)] h-[450px] md:h-[500px] bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-fade-in">
-          {}
           <div className="flex items-center justify-between p-3 md:p-4 border-b border-slate-700 bg-gradient-to-r from-teal-600/10 to-cyan-600/10">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center">
@@ -608,7 +896,6 @@ if (
             </button>
           </div>
 
-          {}
           <div className="p-2 md:p-3 border-b border-slate-700/50">
             <div className="grid grid-cols-2 gap-1.5 md:gap-2">
               {quickActions.map((action, index) => {
@@ -629,7 +916,6 @@ if (
             </div>
           </div>
 
-          {}
           <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4">
             {messages.map((message) => (
               <div
@@ -688,7 +974,6 @@ if (
             <div ref={messagesEndRef} />
           </div>
 
-          {}
           <div className="p-2.5 md:p-4 border-t border-slate-700">
             <div className="flex gap-1.5 md:gap-2">
               <input

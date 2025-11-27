@@ -590,7 +590,6 @@ const Portfolio = () => {
   };
 
   const handleContactClick = () => {
-
     setActiveSection("contact");
     setSidebarOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1910,7 +1909,10 @@ const Portfolio = () => {
           )}
         </div>
       </main>
-
+      <AIAgent
+        onContactClick={handleContactClick}
+        onSectionChange={setActiveSection}
+      />
       {}
       <footer className="mb-16 md:mb-0 relative z-10 bg-slate-900/50 backdrop-blur-xl border-t border-slate-800 py-6 md:py-8 mt-12 md:mt-20 lg:ml-20 animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1944,21 +1946,6 @@ const Portfolio = () => {
               >
                 <Phone size={22} />
               </a>
-
-              {}
-              <div className="flex md:hidden">
-                <AIAgent
-                  onContactClick={handleContactClick}
-                  onSectionChange={setActiveSection}
-                />
-              </div>
-              {}
-              <div className="hidden md:block">
-                <AIAgent
-                  onContactClick={handleContactClick}
-                  onSectionChange={setActiveSection}
-                />
-              </div>
             </div>
           </div>
         </div>

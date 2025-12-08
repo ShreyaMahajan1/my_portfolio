@@ -44,6 +44,9 @@ const AIAgent: React.FC<AIAgentProps> = ({
   const [pendingNavigation, setPendingNavigation] = useState<string | null>(
     null
   );
+  const [conversationHistory, setConversationHistory] = useState<
+    Array<{ role: string; content: string }>
+  >([]);
 
   const skillDetails = [
     {
@@ -443,7 +446,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
       message.includes("portfolio")
     ) {
       return {
-        text: "Shreya has built some impressive projects!\n\n• DFinance - DeFi platform on Internet Computer with lending/borrowing features\n• BlockseBlock - Global hackathon platform for 100k+ developers\n• Heebee Coffee - Complete ecosystem: 5 web apps + mobile app\n• Stringly - Dating app with 1000+ active users\n• Xpedition Club - Gamified learning platform\n• Learn BlockseBlock - E-learning platform with courses\n\nWould you like me to show you the projects section?",
+        text: "Shreya has built some impressive projects!\n\n• DFinance - DeFi platform on Internet Computer with lending/borrowing features\n• BlockseBlock - Global hackathon platform for 100k+ developers\n• Heebee Coffee - Complete ecosystem: 5 web apps + mobile app\n• Stringly - Dating app with 1000+ active users\n• Nagma-E AI Assistant - AI-powered conversational assistant\n• AI Note Maker Agent - Smart note-taking with AI agents\n\nWould you like me to show you the projects section?",
         suggestNavigation: "projects",
       };
     }
@@ -476,9 +479,16 @@ const AIAgent: React.FC<AIAgentProps> = ({
       };
     }
 
-    if (message.includes("xpedition")) {
+    if (message.includes("nagma") || message.includes("music assistant")) {
       return {
-        text: "Xpedition Club is a gamified platform for creators and students featuring quests, challenges, rewards system, and community engagement with real-time leaderboards and achievement tracking. Built with React, TypeScript, Node.js, MongoDB, and Express.js.\n\nShould I show you the projects section?",
+        text: "Nagma-E AI Assistant is a music assistant that analyzes song lyrics structure and provides Google Chat conversation assistance. It features AI-powered insights, lyric analysis, and intelligent chat responses. Built with React, TypeScript, Next.js, and AI/ML technologies.\n\nWant to see more AI projects?",
+        suggestNavigation: "projects",
+      };
+    }
+
+    if (message.includes("note maker") || message.includes("note taker")) {
+      return {
+        text: "AI Note Maker Agent is a smart note-taking application powered by AI agents. It automatically organizes, summarizes, and enhances notes with intelligent suggestions and context-aware formatting. Built with React, TypeScript, Next.js, and OpenAI.\n\nShould I show you all her projects?",
         suggestNavigation: "projects",
       };
     }
@@ -808,42 +818,73 @@ const AIAgent: React.FC<AIAgentProps> = ({
     setInputValue("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      const response = generateAIResponse(currentInput);
+    try {
+      // Call the backend API
+      const response = await fetch('http://localhost:3001/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: currentInput,
+          conversationHistory: conversationHistory,
+        }),
+      });
 
-      if (response.text === "NAVIGATE_PENDING" && pendingNavigation) {
-        const section = pendingNavigation;
-        setPendingNavigation(null);
-        onSectionChange(section);
-        setIsOpen(false);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      if (!response.ok) {
+        throw new Error('Failed to get AI response');
+      }
 
-        const confirmMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          type: "ai",
-          content: `Perfect! Taking you to the ${section} section now. 🚀`,
-          timestamp: new Date(),
-        };
-        setMessages((prev) => [...prev, confirmMessage]);
-        setIsTyping(false);
-        return;
+      const data = await response.json();
+      const aiResponseText = data.response;
+
+      // Update conversation history
+      setConversationHistory((prev) => [
+        ...prev,
+        { role: 'user', content: currentInput },
+        { role: 'assistant', content: aiResponseText },
+      ]);
+
+      // Check if AI suggests navigation
+      const navigationMatch = aiResponseText.match(
+        /\b(projects|skills|experience|contact|about)\b/i
+      );
+      if (navigationMatch) {
+        setPendingNavigation(navigationMatch[1].toLowerCase());
       }
 
       const aiResponse: Message = {
         id: (Date.now() + 1).toString(),
         type: "ai",
-        content: response.text,
+        content: aiResponseText,
         timestamp: new Date(),
       };
 
       setMessages((prev) => [...prev, aiResponse]);
-
-      if (response.suggestNavigation) {
-        setPendingNavigation(response.suggestNavigation);
-      }
-
       setIsTyping(false);
-    }, 1000 + Math.random() * 1000);
+    } catch (error) {
+      console.error('Error calling AI API:', error);
+      
+      // Fallback to rule-based response
+      const fallbackResponse = generateAIResponse(currentInput);
+      
+      const aiResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        type: "ai",
+        content: fallbackResponse.text === "NAVIGATE_PENDING" 
+          ? "I'd be happy to help! Could you rephrase that?"
+          : fallbackResponse.text,
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, aiResponse]);
+      
+      if (fallbackResponse.suggestNavigation) {
+        setPendingNavigation(fallbackResponse.suggestNavigation);
+      }
+      
+      setIsTyping(false);
+    }
   };
 
   const handleQuickAction = (action: () => void, label: string) => {

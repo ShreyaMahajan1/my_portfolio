@@ -543,15 +543,26 @@ const Portfolio = () => {
       url: "https://u554c-gyaaa-aaaam-qdq4a-cai.icp0.io/",
     },
     {
-      title: "Learn BlockseBlock",
+      title: "Nagma-E AI Assistant",
       role: "Full Stack Developer",
       description:
-        "E-learning platform with hands-on Web3/blockchain courses, video lectures, quizzes, progress tracking, and certification system. Integrated payment gateway, course marketplace, and student dashboard for career development.",
-      tech: ["React", "TypeScript", "Node.js", "MongoDB", "Video Streaming"],
-      icon: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=300&fit=crop",
+        "Music assistant that analyzes song lyrics structure and provides Google Chat conversation assistance. Features AI-powered insights, lyric analysis, and intelligent chat responses.",
+      tech: ["React", "TypeScript", "AI/ML", "Next.js", "Tailwind CSS"],
+      icon: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=300&fit=crop",
       gradient: "from-cyan-600 to-teal-600",
       live: true,
-      url: "https://learn.blockseblock.com/",
+      url: "https://shreya-nagma-e-ai.vercel.app/",
+    },
+    {
+      title: "AI Note Maker Agent",
+      role: "Full Stack Developer",
+      description:
+        "Smart note-taking application powered by AI agents. Automatically organizes, summarizes, and enhances notes with intelligent suggestions and context-aware formatting.",
+      tech: ["React", "TypeScript", "AI Agents", "Next.js", "OpenAI"],
+      icon: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop",
+      gradient: "from-teal-600 to-emerald-600",
+      live: true,
+      url: "https://note-maker-with-ai-agent.vercel.app/",
     },
     {
       title: "Stringly – Dating App",
@@ -560,27 +571,9 @@ const Portfolio = () => {
         "A modern dating mobile application where couples connect, match, and chat in real-time. Built using React Native with a high-performance Rust backend — trusted by 1000+ active users.",
       tech: ["React Native", "TypeScript", "Rust", "Backend API"],
       icon: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=300&fit=crop",
-      gradient: "from-teal-600 to-emerald-600",
-      live: true,
-      url: "https://play.google.com/store/apps/details?id=com.stringly",
-    },
-    {
-      title: "Xpedition Club",
-      role: "Full Stack Developer",
-      description:
-        "A gamified platform for creators and students featuring quests, challenges, rewards system, and community engagement with real-time leaderboards and achievement tracking.",
-      tech: [
-        "React",
-        "TypeScript",
-        "Node.js",
-        "MongoDB",
-        "Express.js",
-        "REST API",
-      ],
-      icon: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
       gradient: "from-emerald-600 to-cyan-600",
       live: true,
-      url: "https://xpedition.club/",
+      url: "https://play.google.com/store/apps/details?id=com.stringly",
     },
   ];
 

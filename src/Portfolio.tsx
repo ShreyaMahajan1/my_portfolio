@@ -510,15 +510,15 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "Heebee Coffee",
-      role: "Frontend Developer",
+      title: "Cypher Task Innovate",
+      role: "Full Stack Developer",
       description:
-        "5 web applications + React Native app - User App, Admin Dashboard, POS System, Inventory Management, Kitchen Panel",
-      tech: ["React", "TypeScript", "React Native", "Redux"],
-      icon: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
+        "Comprehensive task management system with admin and user modules. Features task creation, assignment, tracking, priority management, and real-time collaboration for efficient project workflow.",
+      tech: ["React", "Node.js", "MongoDB", "Express.js", "JWT Auth"],
+      icon: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop",
       gradient: "from-cyan-500 to-teal-500",
       live: true,
-      url: "https://heebee.in/",
+      url: "https://cypher-task-innovate.vercel.app/",
     },
     {
       title: "BlockseBlock",
@@ -574,6 +574,17 @@ const Portfolio = () => {
       gradient: "from-emerald-600 to-cyan-600",
       live: true,
       url: "https://play.google.com/store/apps/details?id=com.stringly",
+    },
+    {
+      title: "Heebee Coffee",
+      role: "Frontend Developer",
+      description:
+        "Complete coffee shop management ecosystem with 5 web applications and React Native mobile app. Includes User App, Admin Dashboard, POS System, Inventory Management, and Kitchen Panel.",
+      tech: ["React", "TypeScript", "React Native", "Redux"],
+      icon: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
+      gradient: "from-cyan-600 to-teal-600",
+      live: true,
+      url: "https://heebee.in/",
     },
   ];
 

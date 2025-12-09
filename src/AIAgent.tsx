@@ -35,7 +35,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
       id: "1",
       type: "ai",
       content:
-        "Hi! I'm Shreya's AI assistant. I can help you learn about her experience, skills, projects, or connect you directly. What would you like to know?",
+        "Hi! I'm Shreya Mahajan 👋 I'm a Full Stack Developer. Feel free to ask me about my experience, skills, projects, or how to connect with me. What would you like to know?",
       timestamp: new Date(),
     },
   ]);
@@ -446,7 +446,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
       message.includes("portfolio")
     ) {
       return {
-        text: "Shreya has built some impressive projects!\n\n• DFinance - DeFi platform on Internet Computer with lending/borrowing features\n• BlockseBlock - Global hackathon platform for 100k+ developers\n• Heebee Coffee - Complete ecosystem: 5 web apps + mobile app\n• Stringly - Dating app with 1000+ active users\n• Nagma-E AI Assistant - AI-powered conversational assistant\n• AI Note Maker Agent - Smart note-taking with AI agents\n\nWould you like me to show you the projects section?",
+        text: "I've built some impressive projects!\n\n• DFinance - DeFi platform on Internet Computer with lending/borrowing features\n• BlockseBlock - Global hackathon platform for 100k+ developers\n• Cypher Task Innovate - Task management system with admin and user modules\n• Heebee Coffee - Complete ecosystem: 5 web apps + mobile app\n• Stringly - Dating app with 1000+ active users\n• Nagma-E AI Assistant - Music assistant with lyrics analysis\n• AI Note Maker Agent - Smart note-taking with AI agents\n\nWould you like to see my projects section?",
         suggestNavigation: "projects",
       };
     }
@@ -467,7 +467,14 @@ const AIAgent: React.FC<AIAgentProps> = ({
 
     if (message.includes("heebee") || message.includes("coffee")) {
       return {
-        text: "Heebee Coffee is a complete coffee shop management system! Shreya built 5 web applications (User App, Admin Dashboard, POS System, Inventory Management, Kitchen Panel) plus a React Native mobile app. The tech stack includes React, TypeScript, React Native, and Redux.\n\nInterested in seeing all her projects?",
+        text: "Heebee Coffee is a complete coffee shop management system! I built 5 web applications (User App, Admin Dashboard, POS System, Inventory Management, Kitchen Panel) plus a React Native mobile app. The tech stack includes React, TypeScript, React Native, and Redux.\n\nInterested in seeing all my projects?",
+        suggestNavigation: "projects",
+      };
+    }
+
+    if (message.includes("cypher") || message.includes("task innovate")) {
+      return {
+        text: "Cypher Task Innovate is a comprehensive task management system I built during my internship at O7 Services. It features admin and user modules with task creation, assignment, tracking, priority management, and real-time collaboration. Built with React, Node.js, MongoDB, Express.js, and JWT authentication.\n\nWant to see more of my projects?",
         suggestNavigation: "projects",
       };
     }

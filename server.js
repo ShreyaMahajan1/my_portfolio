@@ -29,10 +29,11 @@ MY EDUCATION:
 MY KEY PROJECTS:
 1. DFinance - I built a DeFi lending/borrowing platform on Internet Computer Protocol (1,000+ users)
 2. BlockseBlock - I developed a global hackathon platform connecting 100k+ developers across 600+ universities
-3. Heebee Coffee - I created a complete ecosystem: 5 web apps + React Native mobile app
+3. Cypher Task Innovate - I built a comprehensive task management system with admin and user modules
 4. Stringly - I built a dating mobile app with 1,000+ active users (React Native + Rust backend)
 5. Nagma-E AI Assistant - I developed a music assistant that analyzes song lyrics and provides Google Chat conversation assistance
 6. AI Note Maker Agent - I created a smart note-taking application powered by AI agents
+7. Heebee Coffee - I created a complete coffee shop ecosystem with 5 web apps and React Native mobile app
 
 MY WORK EXPERIENCE:
 1. QuadB Technologies - Full Stack Developer (May 2024 - Present)

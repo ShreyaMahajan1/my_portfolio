@@ -11,7 +11,6 @@ import {
   Briefcase,
   Mail,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface Message {
   id: string;
@@ -41,9 +40,6 @@ const AIAgent: React.FC<AIAgentProps> = ({
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [pendingNavigation, setPendingNavigation] = useState<string | null>(
-    null
-  );
   const [conversationHistory, setConversationHistory] = useState<
     Array<{ role: string; content: string }>
   >([]);
@@ -857,7 +853,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
         /\b(projects|skills|experience|contact|about)\b/i
       );
       if (navigationMatch) {
-        setPendingNavigation(navigationMatch[1].toLowerCase());
+        // Navigation suggestion detected
       }
 
       const aiResponse: Message = {
@@ -887,7 +883,7 @@ const AIAgent: React.FC<AIAgentProps> = ({
       setMessages((prev) => [...prev, aiResponse]);
       
       if (fallbackResponse.suggestNavigation) {
-        setPendingNavigation(fallbackResponse.suggestNavigation);
+        // Navigation suggestion detected
       }
       
       setIsTyping(false);

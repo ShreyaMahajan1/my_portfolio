@@ -1,10 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import caption from "../src/img/caption.jpg";
-import block from "../src/img/blockseblock.png";
-import dfinance from "../src/img/dfinance.png";
-import learn from "../src/img/learnblockseblock.png";
-import stringly from "../src/img/stringly.jpg";
-import xpedtion from "../src/img/xpedition.png";
 import {
   Mail,
   Phone,
@@ -12,21 +6,17 @@ import {
   Github,
   Linkedin,
   Download,
-  ArrowUp,
   Send,
   Code,
   Briefcase,
   User,
   Home,
   GraduationCap,
-  BookOpen,
   Rocket,
   Star,
   Zap,
-  Coffee,
   TrendingUp,
   Smartphone,
-  Globe,
   Terminal,
   Layers,
   X,
@@ -463,13 +453,6 @@ const Portfolio = () => {
       });
     }
   }, [activeDot, activeSection]);
-
-  const timelineStyles = `
-  @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 20px 5px rgba(168, 85, 247, 0.5); }
-    50% { box-shadow: 0 0 40px 10px rgba(236, 72, 153, 0.8); }
-  }
-`;
 
   const handleCardHover = (index: number) => {
     if (hasCompletedCycle.current) {
@@ -1897,6 +1880,7 @@ const Portfolio = () => {
               <a
                 href="https://github.com/ShreyaMahajan1"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-cyan-400 transition-transform hover:scale-110"
               >
                 <Github size={22} />
@@ -1905,6 +1889,7 @@ const Portfolio = () => {
               <a
                 href="https://www.linkedin.com/in/shreya-mahajann/"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-teal-400 transition-transform hover:scale-110"
               >
                 <Linkedin size={22} />

@@ -56,239 +56,214 @@ const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { id: "all", name: "All Skills", icon: "🎯" },
-    { id: "frontend", name: "Frontend", icon: "🎨" },
-    { id: "backend", name: "Backend", icon: "⚙️" },
-    { id: "database", name: "Database", icon: "🗄️" },
-    { id: "tools", name: "Tools & Others", icon: "🔧" },
+    { id: "all", name: "All Skills", icon: "" },
+    { id: "frontend", name: "Frontend", icon: "" },
+    { id: "backend", name: "Backend", icon: "" },
+    { id: "database", name: "Database", icon: "" },
+    { id: "tools", name: "Tools & Others", icon: "" },
   ];
 
   const skills = [
     {
       name: "React.js",
-      icon: "⚛️",
+      icon: "",
       category: "frontend",
       level: 90,
-      yearsOfExperience: "3+ years",
       description:
         "Used in all major projects — dashboards, KYC flow UI, complex forms, and reusable component systems.",
     },
     {
       name: "Next.js",
-      icon: "▲",
+      icon: "",
       category: "frontend",
       level: 85,
-      yearsOfExperience: "2+ years",
       description:
         "Built SEO friendly pages and API routes — deployed multiple production apps on Vercel.",
     },
     {
       name: "TypeScript",
-      icon: "📘",
+      icon: "",
       category: "frontend",
       level: 88,
-      yearsOfExperience: "2+ years",
       description:
         "Strong typing in both frontend and backend — fewer bugs, cleaner structure, better maintenance.",
     },
     {
       name: "Tailwind CSS",
-      icon: "🎨",
+      icon: "",
       category: "frontend",
       level: 92,
-      yearsOfExperience: "3+ years",
       description:
         "My go-to styling tool — custom themes, responsive layouts, and pixel-polished UI for live products.",
     },
     {
       name: "JavaScript (ES6+)",
-      icon: "🟨",
+      icon: "",
       category: "frontend",
       level: 95,
-      yearsOfExperience: "4+ years",
       description:
         "Everything from async workflows to API integration — the backbone of most of my apps.",
     },
     {
       name: "React Native",
-      icon: "📱",
+      icon: "",
       category: "mobile",
       level: 80,
-      yearsOfExperience: "1+ year",
       description:
         "Shipped 50+ screen production app — auth, navigation, camera, charts, hardware APIs.",
     },
     {
       name: "HTML5 & CSS3",
-      icon: "🌐",
+      icon: "",
       category: "frontend",
       level: 95,
-      yearsOfExperience: "4+ years",
       description:
         "Clean markup, animations, accessibility handling — I care about UI polish.",
     },
     {
       name: "Bootstrap",
-      icon: "🅱️",
+      icon: "",
       category: "frontend",
       level: 80,
-      yearsOfExperience: "2+ years",
       description:
         "Used in internal admin panels and rapid prototypes when speed > customization.",
     },
     {
       name: "Redux",
-      icon: "🔄",
+      icon: "",
       category: "frontend",
       level: 75,
-      yearsOfExperience: "1+ year",
       description:
         "Managed shared state for large screens app with multiple data flows and caching.",
     },
     {
       name: "Sass/SCSS",
-      icon: "💅",
+      icon: "",
       category: "frontend",
       level: 82,
-      yearsOfExperience: "2+ years",
       description:
         "Worked on codebases using SCSS for better structure and theme variables before Tailwind era.",
     },
 
     {
       name: "Node.js",
-      icon: "🟢",
+      icon: "",
       category: "backend",
       level: 85,
-      yearsOfExperience: "3+ years",
       description:
         "Built scalable REST APIs for authentication, admin dashboards & automation services.",
     },
     {
       name: "Express.js",
-      icon: "🚂",
+      icon: "",
       category: "backend",
       level: 85,
-      yearsOfExperience: "3+ years",
       description:
         "Routing, middleware, logging, role-based access — my daily backend comfort zone.",
     },
     {
       name: "RESTful APIs",
-      icon: "🔌",
+      icon: "",
       category: "backend",
       level: 90,
-      yearsOfExperience: "2+ years",
       description:
         "Designed and consumed APIs for mobile & web — proper status codes and error handling.",
     },
     {
       name: "JWT Authentication",
-      icon: "🔐",
+      icon: "",
       category: "backend",
       level: 85,
-      yearsOfExperience: "2+ years",
       description:
         "Used in production onboarding flows — secure session handling and protected routes.",
     },
     {
       name: "Socket.io",
-      icon: "🔌",
+      icon: "",
       category: "backend",
       level: 72,
-      yearsOfExperience: "1+ year",
       description:
         "Used for real-time features like notifications and activity updates.",
     },
 
     {
       name: "MongoDB",
-      icon: "🍃",
+      icon: "",
       category: "database",
       level: 82,
-      yearsOfExperience: "2+ years",
       description:
         "Used across projects — user data, activity logs, dynamic dashboards, aggregation queries.",
     },
     {
       name: "Redis",
-      icon: "🔴",
+      icon: "",
       category: "database",
       level: 70,
-      yearsOfExperience: "1+ year",
       description:
         "Session caching and speeding up login flows — noticeable performance gains.",
     },
 
     {
       name: "Git & GitHub",
-      icon: "🔀",
+      icon: "",
       category: "tools",
       level: 90,
-      yearsOfExperience: "4+ years",
       description:
         "Branching strategies, PR reviews, conflict resolution — core part of team work.",
     },
     {
       name: "Docker",
-      icon: "🐳",
+      icon: "",
       category: "tools",
       level: 75,
-      yearsOfExperience: "1+ year",
       description:
         "Containerized/backend services for smoother onboarding & deployment.",
     },
     {
       name: "Postman",
-      icon: "📮",
+      icon: "",
       category: "tools",
       level: 88,
-      yearsOfExperience: "3+ years",
       description:
         "Daily driver for API dev — automation, token-auth testing, workflow debugging.",
     },
     {
       name: "npm/Yarn",
-      icon: "📦",
+      icon: "",
       category: "tools",
       level: 90,
-      yearsOfExperience: "3+ years",
       description:
         "Managing mono repos & scripts — never shipped a project without them.",
     },
     {
       name: "ESLint/Prettier",
-      icon: "✨",
+      icon: "",
       category: "tools",
       level: 88,
-      yearsOfExperience: "2+ years",
       description:
         "Code stays clean and consistent — makes PR reviews painless.",
     },
     {
       name: "Figma",
-      icon: "🎯",
+      icon: "",
       category: "tools",
       level: 75,
-      yearsOfExperience: "2+ years",
       description:
         "Designed UI flows with dev handoff — reduces guesswork while coding.",
     },
     {
       name: "Webpack/Vite",
-      icon: "⚡",
+      icon: "",
       category: "tools",
       level: 70,
-      yearsOfExperience: "1+ year",
       description:
         "Used in projects needing bundler-level control & faster DX setups.",
     },
     {
       name: "Vercel/Netlify",
-      icon: "☁️",
+      icon: "",
       category: "tools",
       level: 85,
-      yearsOfExperience: "2+ years",
       description:
         "Fast deployments, preview links for clients, serverless functions setup.",
     },
@@ -853,7 +828,7 @@ const Portfolio = () => {
                 {}
                 <div className="space-y-4 md:space-y-6 text-left order-2 lg:order-1">
                   <h2 className="text-xl md:text-2xl lg:text-3xl text-cyan-400/90 font-medium animate-fade-in-delay">
-                    Hi there, I'm
+                    Hello, I'm
                   </h2>
 
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-teal-400 via-cyan-400 to-slate-300 bg-clip-text text-transparent animate-gradient leading-[1.15]">
@@ -943,7 +918,7 @@ const Portfolio = () => {
                       className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg text-base md:text-lg font-semibold hover:shadow-xl hover:shadow-teal-500/30 transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden"
                     >
                       <span className="relative z-10 flex items-center gap-2 md:gap-3">
-                        Let's Connect
+                        Get in Touch
                         <Send
                           size={18}
                           className="group-hover:translate-x-1 transition-transform duration-300"
@@ -1081,7 +1056,7 @@ const Portfolio = () => {
                 </h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-cyan-500"></div>
                 <p className="text-base md:text-lg text-gray-400 max-w-2xl font-normal">
-                  Building products that people love to use
+                  Full Stack Developer focused on building quality software
                 </p>
               </div>
 
@@ -1120,10 +1095,8 @@ const Portfolio = () => {
 
                   <div className="space-y-5 text-gray-300 text-sm md:text-base leading-relaxed">
                     <p>
-                      Full Stack Developer who enjoys turning ideas into real
-                      products people actually use. Delivering production-ready
-                      Web & Mobile applications using modern JavaScript
-                      technologies.
+                      Full Stack Developer building production-ready web and
+                      mobile applications using modern JavaScript technologies.
                     </p>
 
                     <div className="bg-slate-800/50 rounded-lg p-4 border-l-2 border-teal-500">
@@ -1138,9 +1111,9 @@ const Portfolio = () => {
                     </div>
 
                     <p>
-                      I enjoy owning the full development lifecycle —
+                      I work across the full development lifecycle —
                       architecture, API integrations, frontend engineering,
-                      deployment & continuous improvement.
+                      deployment and continuous improvement.
                     </p>
 
                     {}
@@ -1345,14 +1318,13 @@ const Portfolio = () => {
                   </div>
                   <div className="space-y-4 text-sm text-gray-400 leading-relaxed">
                     <p>
-                      I started coding in college, initially drawn to the
-                      creative side of building user interfaces. What began as
-                      curiosity quickly became a passion.
+                      Started coding in college with a focus on building user
+                      interfaces. Gradually expanded into full-stack development
+                      through hands-on projects.
                     </p>
                     <p>
-                      Each project taught me something new about turning ideas
-                      into working products. That continuous learning process is
-                      what keeps me motivated.
+                      Each project has been a learning opportunity to improve
+                      both technical skills and problem-solving approach.
                     </p>
                   </div>
                 </div>
@@ -1366,14 +1338,14 @@ const Portfolio = () => {
                   </div>
                   <div className="space-y-4 text-sm text-gray-400 leading-relaxed">
                     <p>
-                      I believe good software comes from understanding both the
-                      technical requirements and the people who'll use it. Code
-                      quality and user experience go hand in hand.
+                      Good software requires understanding both technical
+                      requirements and user needs. Code quality and user
+                      experience are equally important.
                     </p>
                     <p>
-                      Whether fixing bugs, architecting systems, or
-                      collaborating with teams, I focus on building things that
-                      work well and last.
+                      Whether fixing bugs, designing systems, or working with
+                      teams, the focus is on building reliable, maintainable
+                      solutions.
                     </p>
                   </div>
                 </div>
@@ -1408,7 +1380,7 @@ const Portfolio = () => {
                         : "bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white border border-slate-700"
                     }`}
                   >
-                    {category.icon} {category.name}
+                    {category.name}
                     {selectedCategory === category.id && (
                       <span className="ml-2 text-xs opacity-75">
                         ({filteredSkills.length})
@@ -1433,16 +1405,10 @@ const Portfolio = () => {
                       {}
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-center gap-3 flex-1 min-w-0">
-                          <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded bg-slate-800 border border-slate-700 group-hover:bg-teal-600/10 group-hover:border-teal-600 transition-all duration-300">
-                            <span className="text-xl">{skill.icon}</span>
-                          </div>
                           <div className="flex-1 min-w-0">
                             <h3 className="text-base font-semibold text-white truncate">
                               {skill.name}
                             </h3>
-                            <p className="text-xs text-gray-500">
-                              {skill.yearsOfExperience}
-                            </p>
                           </div>
                         </div>
                       </div>
@@ -1659,7 +1625,7 @@ const Portfolio = () => {
                 </h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-cyan-500"></div>
                 <p className="text-gray-400 text-base max-w-2xl">
-                  Things I've built and shipped
+                  Selected work and projects
                 </p>
               </div>
 
@@ -1737,7 +1703,7 @@ const Portfolio = () => {
                 </h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-cyan-500"></div>
                 <p className="text-gray-400 text-base max-w-2xl">
-                  Let's connect and discuss your next project
+                  Open to new opportunities and collaborations
                 </p>
               </div>
 
@@ -1842,7 +1808,7 @@ const Portfolio = () => {
                   {submitted && (
                     <div className="bg-teal-500/10 border border-teal-500 rounded-lg p-4 text-center">
                       <p className="text-teal-400 font-semibold">
-                        ✓ Message sent successfully!
+                        Message sent successfully!
                       </p>
                     </div>
                   )}

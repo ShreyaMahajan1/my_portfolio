@@ -51,7 +51,7 @@ MY WORK EXPERIENCE:
 
 MY TECHNICAL SKILLS:
 Frontend: I have 3+ years with React.js, 2+ years with Next.js and TypeScript, 3+ years with Tailwind CSS, 4+ years with JavaScript ES6+, HTML5 & CSS3. I also work with Redux, Bootstrap, and Sass/SCSS.
-Backend: I have 3+ years experience with Node.js and Express.js, 2+ years with MongoDB, 1+ year with Redis. I build RESTful APIs, implement JWT Authentication, and use Socket.io.
+Backend: I have 3+ years experience with Node.js and Express.js, 2+ years with MongoDB, Redis. I build RESTful APIs, implement JWT Authentication, and use Socket.io.
 Mobile: I build React Native production apps with 50+ screens.
 Tools: I use Git & GitHub, Docker, Postman, Figma, ESLint, Prettier, Webpack, Vite daily.
 Deployment: I deploy on Vercel and Netlify.
